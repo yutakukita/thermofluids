@@ -185,7 +185,7 @@ header #top-container {
   max-width: 1140px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   padding-top: 50px;
   padding-left: 5%;
   padding-right: 5%;
@@ -199,7 +199,7 @@ header #top-container {
   max-width: 590px;
   display: flex;
   flex-flow: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .left-panel h3 {
@@ -211,10 +211,8 @@ header #top-container {
 
 .left-panel h1 {
   color: white;
-  /* font-size: 350%; */
-  /* font-weight: 400; */
   letter-spacing: 2px;
-  margin-top: 20px;
+  margin-top: 2%;
 }
 
 #text-slide {
@@ -423,11 +421,15 @@ main p {
   /* margin: 5px 0; */
 }
 
-#research {
+#research, #people, #opportunities {
   min-height: 100vh;
   padding-top: 10vh;
   padding-left: 10%;
   padding-right: 10%;
+}
+
+#research img {
+  width: 80%;
 }
 
 #people {
@@ -489,13 +491,6 @@ p.PI-text {
   margin-left: 0;
 }
 
-#opportunities {
-  min-height: 100vh;
-  padding-top: 10vh;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
 #opportunities img {
   height: 20vh;
   width: 100%;
@@ -523,7 +518,7 @@ p.PI-text {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 .contact-box img{
@@ -541,7 +536,7 @@ p.PI-text {
 .contact-item{
   width: 50%;
   margin: 0 auto;
-  height: 200px;
+  height: auto;
   padding: 1em;
   box-sizing: border-box;
   display: flex;
@@ -558,22 +553,98 @@ p.PI-text {
 
 /* mobile */
 @media screen and (max-width: 600px) {
+  html {
+    font-size: 50%;
+  }
+
+  .mobile-off {
+    display: none;
+  }
+
   /* header */
-  header {
-    width: 100%;
-    line-height: 40%;
-    padding: 0;
-    list-style: none;
-  }
-
-  header ul li {
-    padding: 0 20px;
-  }
-
   .menu-mobile {
     display: inline;
   }
   .menu-pc {
     display: none;
   }
+
+  header #top-container {
+    padding-top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  #top-container .left-panel {
+    height: auto;
+    width: 100%;
+    z-index: 1000;
+    flex-direction: column;
+    margin: auto 0;
+  }
+  .left-panel h1 {
+    text-align: center;
+  }
+  .left-panel p {
+    width: 80%;
+  }
+  #text-slide {
+    margin: 20px 0 0;
+  }
+  #top-container .right-panel {
+    width: 60%;
+    position: absolute;
+    bottom: 10%;
+    right: 5%;
+    z-index: 0;
+  }
+  #img-slide .splide__track {
+    height: 40vh;
+  }
+
+  /* main */
+  #research, #people, #opportunities, #contact {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  #research img {
+    width: 100%;
+  }
+
+  .people-PI {
+    height: auto;
+    margin: 0;
+    display: flex;
+    /* flex-direction: column; */
+    align-content: flex-end;
+  }
+
+  #people img {
+  width: 40vw;
+  height: auto;
+  object-fit: cover;
+  }
+
+  .contact-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  .contact-box iframe{
+    width: 100%;
+    height: 300px;
+    padding: 1em;
+    display: block;
+  }
+  .contact-item{
+    width: 100%;
+  }
+  
+  .contact-item h3 {
+    font-weight: bold;
+    text-align: left;
+    margin: 0.2em 0 0.2em 0;
+  }  
 }

@@ -568,8 +568,8 @@ p.PI-text {
     margin: 0 auto;
     padding: 0 4%;
     z-index: 10000;
-    position: bottom;
     position: fixed;
+	  bottom: 0;
   }
 
   .menu-mobile ul {

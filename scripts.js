@@ -34,13 +34,13 @@ document.addEventListener( 'DOMContentLoaded', function () {
 
 //--- Fix the navigation at the top of the page after scrollong ---//
   $(function() {
-    var offset = $('#global-nav').offset();
+    var offset = $('.global-nav').offset();
  
     $(window).scroll(function () {
         if ($(window).scrollTop() > offset.top) {
-            $('#global-nav').addClass('nav_fixed');
+            $('.global-nav').addClass('nav_fixed');
         } else {
-            $('#global-nav').removeClass('nav_fixed');
+            $('.global-nav').removeClass('nav_fixed');
         }
     });
 });

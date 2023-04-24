@@ -35,9 +35,9 @@ body {
 }
 
 footer {
-  width: 100%;
+  /* width: 100%; */
   height: 10svh;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,8 +204,6 @@ header #top-container {
 
 .left-panel h3 {
   color: lightgray;
-  /* font-size: 150%;
-  font-weight: 400; */
   letter-spacing: 1px;
 }
 
@@ -305,9 +303,9 @@ header #top-container {
 }
 
 /* Navigation */
-#global-nav {
+.global-nav {
   width: 100%;
-  height: 10%;
+  height: 10svh;
   flex-wrap: nowrap;
   display: flex;
   align-items: center;
@@ -317,7 +315,7 @@ header #top-container {
   z-index: 10000;
 }
 
-#global-nav ul {
+.global-nav ul {
   list-style: none;
   display: flex;
   justify-content: space-around;
@@ -326,7 +324,7 @@ header #top-container {
   font-size: 140%;
 }
 
-#global-nav ul li {
+.global-nav ul li {
   text-align: center;
   margin: 0 auto;
   white-space: nowrap;
@@ -357,14 +355,18 @@ header #top-container {
   transform: scale(1, 1);
 }
 
-#global-nav a:hover, a:active, a:focus {
+.global-nav a:hover, a:active, a:focus {
   color: white;
+}
+
+.global-nav.nav_fixed a:hover,a:active {
+  color: black;
 }
 
 .nav_fixed {
   left: 0;
   top: 0;
-  height: 30px;
+  height: 10svh;
   position: fixed;
   background-color: white;
   box-sizing: border-box;
@@ -377,10 +379,6 @@ header #top-container {
 
 .menu-mobile {
   display: none;
-}
-
-#global-nav.nav_fixed a:hover,a:active {
-  color: black;
 }
 
 a.nav-link.current-position {
@@ -432,13 +430,6 @@ main p {
   width: 80%;
 }
 
-#people {
-  min-height: 100svh;
-  padding-top: 10svh;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
 #people .people-PI {
   /* margin-left: 10%; */
   /* margin-top: 3%; */
@@ -452,10 +443,6 @@ main p {
 	/* align-items: baseline; */
 	/* justify-content: space-between; */
 }
-
-/* .people-PI img {
-  height: 80%;
-} */
 
 .people-PI .PI-info {
   height: auto;
@@ -557,14 +544,50 @@ p.PI-text {
     font-size: 50%;
   }
 
+  p {
+    font-size: 160%;
+  }
+
   .mobile-off {
     display: none;
   }
 
+  body {
+    overflow: hidden;
+  }
+
   /* header */
   .menu-mobile {
-    display: inline;
+    width: 100vw;
+    height: 10svh;
+    /* display: inline; */
+    flex-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    padding: 0 4%;
+    z-index: 10000;
+    position: bottom;
+    position: fixed;
   }
+
+  .menu-mobile ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    /* padding: 20px; */
+    margin: 0;
+    font-size: 140%;
+  }
+  
+  .menu-mobile ul li {
+    text-align: center;
+    margin: 0 auto;
+    white-space: nowrap;
+    padding: 0 8%;
+  }
+
   .menu-pc {
     display: none;
   }
@@ -602,8 +625,14 @@ p.PI-text {
 
   /* main */
   #research, #people, #opportunities, #contact {
+    padding-top: 5svh;
+    padding-bottom: 10svh;
     padding-left: 5%;
     padding-right: 5%;
+  }
+
+  #contact {
+    height: 85svh;
   }
 
   #research img {
@@ -644,4 +673,8 @@ p.PI-text {
     text-align: left;
     margin: 0.2em 0 0.2em 0;
   }  
+
+  footer {
+    margin-bottom: 5svh;
+  }
 }

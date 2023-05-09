@@ -45,92 +45,77 @@ document.addEventListener( 'DOMContentLoaded', function () {
     });
 });
 
+//--- FADE-IN---//
+jQuery(function($){
+	// execute when scrolling and loading
+	$(window).on('scroll load', function(){
+		$('.fade-in').each( function() {
+			var this_pos = $(this).offset().top;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if ( scroll > this_pos - windowHeight ) {
+				$(this).css({
+					opacity: 1,
+					transform: 'translate(0)'
+				});
+			}
+		});
+	});
+});
+
 //--- FADE-IN FROM LEFT ---//
-if(!navigator.userAgent.match(/(iPhone|iPad)/)){
-	jQuery(function($){
-		// execute when scrolling and loading
-		$(window).on('scroll load', function(){
-			$('.fade-left').each( function() {
-				var this_pos = $(this).offset().top;
-				var scroll = $(window).scrollTop();
-				var windowHeight = $(window).height();
-				if ( scroll > this_pos - windowHeight ) {
-					$(this).css({
-						opacity: 1,
-						transform: 'translate(0)'
-					});
-				}
-			});
+jQuery(function($){
+	// execute when scrolling and loading
+	$(window).on('scroll load', function(){
+		$('.fade-left').each( function() {
+			var this_pos = $(this).offset().top;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if ( scroll > this_pos - windowHeight ) {
+				$(this).css({
+					opacity: 1,
+					transform: 'translate(0)'
+				});
+			}
 		});
 	});
-}else{
-	jQuery(function($){
-		$(window).on('load', function(){
-			$('.fade-left').each( function() {
-				$(this).removeClass('fade-left');
-				$(this).addClass('fade-in');
-			});
-		});
-	});
-}
+});
 
 //--- FADE-IN FROM RIGHT ---//
-if(!navigator.userAgent.match(/(iPhone|iPad)/)){
-	jQuery(function($){
-		// execute when scrolling and loading
-		$(window).on('scroll load', function(){
-			$('.fade-right').each( function() {
-				var this_pos = $(this).offset().top;
-				var scroll = $(window).scrollTop();
-				var windowHeight = $(window).height();
-				if ( scroll > this_pos - windowHeight ) {
-					$(this).css({
-						opacity: 1,
-						transform: 'translate(0)'
-					});
-				}
-			});
+jQuery(function($){
+	// execute when scrolling and loading
+	$(window).on('scroll load', function(){
+		$('.fade-right').each( function() {
+			var this_pos = $(this).offset().top;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if ( scroll > this_pos - windowHeight ) {
+				$(this).css({
+					opacity: 1,
+					transform: 'translate(0)'
+				});
+			}
 		});
 	});
-}else{
-	jQuery(function($){
-		$(window).on('load', function(){
-			$('.fade-right').each( function() {
-				$(this).removeClass('fade-right');
-				$(this).addClass('fade-in');
-			});
-		});
-	});
-}
+});
 
 //--- FADE-IN FROM BOTTOM ---//
-if(!navigator.userAgent.match(/(iPhone|iPad)/)){
-	jQuery(function($){
-		// execute when scrolling and loading
-		$(window).on('scroll load', function(){
-			$('.fade-up').each( function() {
-				var this_pos = $(this).offset().top;
-				var scroll = $(window).scrollTop();
-				var windowHeight = $(window).height();
-				if ( scroll > this_pos - windowHeight ) {
-					$(this).css({
-						opacity: 1,
-						transform: 'translate(0)'
-					});
-				}
-			});
+jQuery(function($){
+	// execute when scrolling and loading
+	$(window).on('scroll load', function(){
+		$('.fade-up').each( function() {
+			var this_pos = $(this).offset().top;
+			var scroll = $(window).scrollTop();
+			var windowHeight = $(window).height();
+			if ( scroll > this_pos - windowHeight ) {
+				$(this).css({
+					opacity: 1,
+					transform: 'translate(0)'
+				});
+			}
 		});
 	});
-}else{
-	jQuery(function($){
-		$(window).on('load', function(){
-			$('.fade-up').each( function() {
-				$(this).removeClass('fade-up');
-				$(this).addClass('fade-in');
-			});
-		});
-	});
-}
+});
 
 //--- Sync the navigation menu with the current section ---//
 $(function () {

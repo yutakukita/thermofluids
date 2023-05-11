@@ -411,6 +411,66 @@ footer .icons {
   margin-bottom: 1%;
 }
 
+/* kita-cv.html */
+#pi-top-info, #experience, #education {
+  /* padding-top: 10svh; */
+  padding-left: 10%;
+  padding-right: 10%;
+  /* display: flex;
+  flex-direction: column; */
+}
+
+#pi-top-info h1 {
+  text-align: left;
+  margin-bottom: 5%;
+}
+
+#pi-top-info figure {
+  margin: 0 0% 2% 2%;
+  width: 30%;
+  float: right;
+}
+
+#pi-top-info figure figcaption {
+  text-align: left;
+  background-color: rgb(240, 240, 240);
+  padding: 5%;
+}
+
+#pi-top-info figure figcaption ul {
+  list-style: none;
+  margin: 2% 0;
+  padding-left: 5%;
+}
+
+.pi-top-info-items {
+  display: flex;
+}
+
+#experience, #education {
+  margin-top: 4%;
+}
+
+table.cv {
+  margin-left: 2%;
+}
+
+table.cv td {
+  vertical-align: top;
+}
+
+table.cv td.time {
+  white-space: nowrap;
+  width: 120px;
+}
+
+table.cv td.item {
+  padding-left: 10px;
+  white-space: wrap;
+  display: flex;
+  flex-direction: column;
+}
+
 /* Common styles */
 a:hover,a:active {
   color: black;
@@ -458,6 +518,14 @@ h3 {
 }
 
 p {
+  font-size: 140%;
+}
+
+tr {
+  margin-left: 5%;
+}
+
+td {
   font-size: 140%;
 }
 
@@ -510,6 +578,14 @@ figcaption{
 	transition: 1s;
   z-index: 10000;
 }
+
+.print-on {
+  display: none;
+}
+
+/* .print-off {
+  display: inline;
+} */
 
 /* Buttons */
 /* ref: https://dubdesign.net/download/html-css/button-design/ */
@@ -694,5 +770,35 @@ figcaption{
 
   footer {
     margin-bottom: 5svh;
+  }
+
+  /* kita-cv.html */
+  /* #pi-top-info {
+    flex-direction: column;
+  } */
+}
+
+@media print {
+  nav {
+    display: none;
+  }
+
+  main {
+    padding-top: 1%;
+    padding-bottom: 1%;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+  #pi-top-info, #experience, #education {
+    padding: 0%;
+  }
+
+  .print-on {
+    display: inline;
+  }
+
+  .print-off {
+    display: none;
   }
 }

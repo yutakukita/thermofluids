@@ -412,12 +412,14 @@ footer .icons {
 }
 
 /* kita-cv.html */
-#pi-top-info, #experience, #education {
-  /* padding-top: 10svh; */
+#experience, #education, #awards, #research-interest, #society, #research-statement, #publications {
   padding-left: 10%;
   padding-right: 10%;
-  /* display: flex;
-  flex-direction: column; */
+  margin-top: 4%;
+}
+
+#pi-top-info {
+  padding: 0 10%;
 }
 
 #pi-top-info h1 {
@@ -447,10 +449,6 @@ footer .icons {
   display: flex;
 }
 
-#experience, #education {
-  margin-top: 4%;
-}
-
 table.cv {
   margin-left: 2%;
 }
@@ -469,6 +467,28 @@ table.cv td.item {
   white-space: wrap;
   display: flex;
   flex-direction: column;
+}
+
+ol {
+  font-size: 140%;
+  padding-left: 2em;
+}
+
+ol li {
+  list-style-position: outside;
+  padding-left: 1em;
+}
+
+.cv-list li {
+  list-style-position: inside;
+  font-size: 140%;
+  padding-left: 1em;
+}
+
+#research-statement figure {
+  padding: 1% 10%;
+  border-top: solid 1px;
+  border-bottom: solid 1px;
 }
 
 /* Common styles */
@@ -790,12 +810,16 @@ figcaption{
     padding-right: 1%;
   }
 
-  #pi-top-info, #experience, #education {
+  #pi-top-info, #experience, #education, #awards, #research-interest, #society, #research-statement, #publications {
     padding: 0%;
   }
 
+  li.print-on {
+    display: list-item;
+  }
+
   .print-on {
-    display: inline;
+    display: block;
   }
 
   .print-off {

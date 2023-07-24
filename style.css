@@ -412,7 +412,7 @@ footer .icons {
 }
 
 /* kita-cv.html */
-#experience, #education, #awards, #research-interest, #society, #research-statement, #publications {
+#experience, #education, #awards, #research-interest, #society, #research-statement, #publications, #fundings, #committees, #review, #teaching-statement, #supervision, #administrative {
   padding-left: 10%;
   padding-right: 10%;
   margin-top: 4%;
@@ -792,10 +792,40 @@ figcaption{
     margin-bottom: 5svh;
   }
 
-  /* kita-cv.html */
-  /* #pi-top-info {
+/* kita-cv.html */
+  #experience, #education, #awards, #research-interest, #society, #research-statement, #publications, #fundings, #committees, #review, #teaching-statement, #supervision, #administrative {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 2%;
+  }
+
+  #pi-top-info {
+    padding: 0 5%;
+    margin-top: 5%;
+  }
+
+  #pi-top-info figure {
+    margin: 0;
+    width: 35%;
+    float: none;
+    float: right;
+  }
+
+  #pi-top-info figure figcaption {
+    display: none;
+  }
+
+  table.cv td.time {
+    white-space: nowrap;
+    width: 80px;
+  }
+  
+  table.cv td.item {
+    padding-left: 10px;
+    white-space: wrap;
+    display: flex;
     flex-direction: column;
-  } */
+  }
 }
 
 @media print {
@@ -810,7 +840,7 @@ figcaption{
     padding-right: 1%;
   }
 
-  #pi-top-info, #experience, #education, #awards, #research-interest, #society, #research-statement, #publications {
+  #pi-top-info, #experience, #education, #awards, #research-interest, #society, #research-statement, #publications, #fundings, #committees, #review, #teaching-statement, #supervision, #administrative {
     padding: 0%;
   }
 

@@ -1,0 +1,14 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		},
+		{
+			"name": "SaayaMatsumoto",
+			"path": "../../SaayaMatsumoto"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "thermofluids"
+	}
+}

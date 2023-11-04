@@ -17,7 +17,7 @@ document.addEventListener( 'DOMContentLoaded', function () {
     arrows    : false,
     updateOnMove: true,
   } );
-  
+
   var text = new Splide( '#text-slide', {
     type      : 'fade',
     // type: 'loop',

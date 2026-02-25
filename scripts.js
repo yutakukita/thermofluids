@@ -33,8 +33,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 document.addEventListener('DOMContentLoaded', () => {
     // 2. Sticky Navigation - Triggered after passing the Header
-    //--- Fix the navigation at the top of the page after scrollong ---//
-
     // 2. Sticky Navigation - Triggers exactly when the nav touches the top
     const nav = document.querySelector('.global-nav');
 

@@ -27,7 +27,7 @@ SOFTWARE. */
 
 html {
   font-size: 65.5%;  /* 10px (100% --> 16px) */
-  overflow-y: overlay; 
+  overflow-y: overlay;
   scroll-behavior: smooth;
 }
 

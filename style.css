@@ -20,50 +20,49 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
+/* ==========================================================================
+   1. GLOBAL DEFAULTS & FONTS
+   ========================================================================== */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
 
 html {
   font-size: 65.5%;  /* 10px (100% --> 16px) */
   overflow-y: overlay; 
   scroll-behavior: smooth;
-  /* hyphens: auto; */
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-
-::-webkit-scrollbar-track {
-  background-color: rgba(0,0,0,0);
-  border-radius: 3px;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: lightgray;
-  border-radius: 3px;
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* font-family: 'Poppins', sans-serif; */
   font-family: 'Quicksand', sans-serif;
   color: #5f5f5f;
 }
 
-body {
-  height: 100%;
-  width: 100%;
-}
+body {height: 100%;width: 100%;}
 
-/* header */
-header {
-  height: 100svh;
-  max-width: 100vw;
-  background-color: black;
-  margin: 0 auto;
-}
+/* Scrollbar Styles */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background-color: rgba(0,0,0,0); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background-color: lightgray; border-radius: 3px; }
+
+/* Global Typography */
+h1, h2 { font-size: 350%; font-weight: 400; }
+h3 { font-size: 160%; font-weight: 400; }
+p { font-size: 140%; line-height: 130%; text-align: justify; }
+a, a:visited { position: relative; }
+a:hover,a:active { color: black; }
+.icons a::after { display: none; } /* icon links dont have underlines */
+img { max-width: 100%; }
+
+/* Global Figure Setting */
+figure { margin-top: 2%; margin-bottom: 2%; width: auto; display: block; text-align:center; }
+figcaption{ display: block;	margin-top: 0.5em; font-size: 120%; text-align: center; }
+
+/* ==========================================================================
+   2. LAYOUT: HEADER & HERO SLIDER
+   ========================================================================== */
+header { height: 100svh; max-width: 100vw; background-color: black; margin: 0 auto; }
 
 header #top-container {
   height: 90%;
@@ -71,410 +70,150 @@ header #top-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 50px;
-  padding-left: 7.5%;
-  padding-right: 7.5%;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 50px 7.5% 0;
+  margin: 0 auto;
 }
 
-#top-container .left-panel {
-  height: auto;
-  width: 60%;
-  max-width: 590px;
-  display: flex;
-  flex-flow: column;
-  justify-content: center;
-}
+.left-panel { height: auto; width: 60%; max-width: 590px; display: flex; flex-flow: column; justify-content: flex-start; padding-top: 15vh;}
+.left-panel h1 { color: white; letter-spacing: 2px; margin-top: 2%; margin-bottom: 5%;}
+.left-panel p.pi-name { color: lightgray; letter-spacing: 1px; font-size: 160%; font-weight: 400; }
 
-.left-panel h3 {
-  color: lightgray;
-  letter-spacing: 1px;
-}
+/* --- Text Slide Styles --- */
+#text-slide { width: 80%; margin: 50px 0 0; min-height: 300px; display: block;}
+#text-slide h3 { color: lightgrey; font-size: 260%; font-weight: 400; letter-spacing: 1.5px; }
+#text-slide p { font-size: 140%; margin-top: 5%; color: lightgrey; }
+#text-slide i { color: lightgrey; }
 
-.left-panel h1 {
-  color: white;
-  letter-spacing: 2px;
-  margin-top: 2%;
-}
+/* 1. Hide slides that are NOT active to force a DOM 'refresh' */
+#text-slide .splide__slide:not(.is-active) { display: none; }
 
-#text-slide {
-  width: 80%;
-  margin: 80px 0 0;
-}
+/* 2. Base state for text inside the active slide */
+#text-slide .splide__slide.is-active h3, 
+#text-slide .splide__slide.is-active p { opacity: 1; transform: translateY(0); }
 
-#text-slide h2 {
-  color: lightgrey;
-  font-weight: 400;
-  letter-spacing: 1.5px;
-}
+/* 3. The Animation Trigger */
+#text-slide .splide__slide.is-active h3 { animation: slide-up-in 1s 0.4s both; }
+#text-slide .splide__slide.is-active p { animation: slide-up-in 1s 0.8s both; }
 
-#text-slide p {
-  font-size: 140%;
-  margin-top: 5%;
-  color: lightgrey;
-  text-align: justify;
-}
-
-#text-slide i {
-  color: lightgray;
-}
-
-/* fade-in animation for #text-slide */
-#text-slide .splide__slide.is-active h2 {
-  animation-delay: 0.5s;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-name: slide-up-in;
-}
-
-#text-slide .splide__slide.is-active p {
-  animation-delay: 1s;
-  animation-duration: 1s;
-  animation-fill-mode: both;
-  animation-name: slide-up-in;
-}
-
+/* 4. The Keyframes - strictly using Y axis */
 @keyframes slide-up-in {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
-/*  */
-
-#top-container .right-panel {
-  width: 40%;
-}
-
-#img-slide .splide__track {
-  height: 60svh;
-}
-
-#img-slide .splide__slide {
-  perspective: 600px;
-  perspective-origin: 50% 0%;
-  display: flex;
-  justify-content: center;
-}
-
+/* --- Image Slide Styles --- */
+.right-panel { width: 40%; }
+#img-slide .splide__track { height: 60svh; }
+#img-slide .splide__slide { perspective: 600px; perspective-origin: 50% 0%; display: flex; justify-content: center; }
 #img-slide .splide__slide img {
-  max-width: 100%;
-  max-height: 100%;
-  height: auto;
-  object-fit: cover;
   align-self: center;
   transform-style: preserve-3d;
   transform: rotateY(-20deg);
   -webkit-box-reflect: below 7px -webkit-gradient(linear, left bottom, left 75%, from(#FFF), to(transparent));
 }
 
-#img-slide .splide__progress {
-  margin-left: auto;
-  margin-right: 10px;
-  width: 40px;
-  background-color: gray;
-}
+/* Progress slidebar */
+#img-slide .splide__progress { margin-left: auto; margin-right: 10px; width: 40px; background-color: gray; }
+#img-slide .splide__progress .splide__progress__bar { height: 2px; background: lightgray; }
 
-#img-slide .splide__progress .splide__progress__bar {
-  height: 2px;
-  background: lightgray;
-}
-
-/* Navigation */
+/* ==========================================================================
+   3. NAVIGATION
+   ========================================================================== */
 .global-nav {
   width: 100%;
   height: 10svh;
-  flex-wrap: nowrap;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  padding: 0 4%;
   z-index: 10000;
-}
-
-.global-nav ul {
-  list-style: none;
-  display: flex;
-  justify-content: space-around;
-  padding: 20px;
-  margin: 0;
-  font-size: 140%;
-}
-
-.global-nav ul li {
-  text-align: center;
-  margin: 0 auto;
-  white-space: nowrap;
-  padding: 0 20px;
-}
-
-.menu-pc a {
   font-weight: 600;
-  color: #5f5f5f;
-  position: relative;
-  display: inline-block;
 }
 
-.menu-pc a::after {
-  position: absolute;
-  left: 0;
-  content: '';
-  width: 100%;
-  height: 1px;
-  background: white;
-  bottom: -3px;
-  transform: scale(0, 1);
-  transform-origin: center top;
-  transition: transform 0.3s;
-}
-  
-.menu-pc a:hover::after {
-  transform: scale(1, 1);
-}
+.global-nav ul { list-style: none; display: flex; justify-content: space-around; padding: 20px; font-size: 140%; }
+.global-nav ul li { padding: 0 20px; white-space: nowrap; }
 
-.global-nav a:hover, a:active, a:focus {
-  color: white;
+/* --- 1. DEFAULT ACTIVE STATE (Home Page Header) --- */
+/* While the nav is sitting on the black header */
+.global-nav a {text-decoration: none;}
+.global-nav a::after {
+  position: absolute; left: 0; bottom: -3px; content: '';
+  width: 100%; height: 1px; background: white;
+  transform: scale(0, 1); transition: transform 0.3s;
 }
+/* Active Page Link */
+.nav-link.current-position {color: white !important;}
+.nav-link.current-position::after {background: white;transform: scaleX(1);}
+.nav-link:hover::after {transform: scale(1, 1);}
+.nav-link:hover, a:active, a:focus {color: white;}
 
-.global-nav.nav_fixed a:hover,a:active {
-  color: black;
-}
-
+/* --- 2. STICKY ACTIVE STATE (When Scrolled) --- */
+/* When the nav sticks and the background turns white */
 .nav_fixed {
-  left: 0;
-  top: 0;
-  height: 10svh;
-  position: fixed;
-  background-color: white;
-  box-sizing: border-box;
-  opacity: 0.8;
+  position: fixed; top: 0; left: 0;
+  height: 10svh; width: 100%;
+  background-color: white; opacity: 0.8;
 }
+/* Active Page Link */
+.nav_fixed .nav-link.current-position {color: black !important;}
+.nav_fixed .nav-link.current-position::after {background: black;}
+.nav_fixed .nav-link::after {background: black;}
+.nav_fixed .nav-link:hover,a:active {color: black;}
+.nav-fixed .nav-link.current-position {color: black;}
 
-.nav_fixed a::after {
-  background: black;
-}
+/* --- 3. CV PAGE EXCEPTION --- */
+/* Since the CV page is white from the start, links should never be white */
+#cv-page .nav-link.current-position {color: black !important;}
+#cv-page .nav-link.current-position::after {background: black;}
+#cv-page .nav-link::after {background: black;}
+#cv-page .nav-link:hover,a:active {color: black;}
+#cv-page .nav-link.current-position {color: black;}
 
-.menu-mobile {
-  display: none;
-}
+/* ==========================================================================
+   4. MAIN SECTIONS & COMPONENTS
+   ========================================================================== */
+main { max-width: 1140px; margin: 0 auto; }
+main h2 { margin-bottom: 2%; text-align: center; }
+section { min-height: 100svh; padding: 10svh 10% 0; }
 
-a.nav-link.current-position {
-  color: black;
-}
+/* #news */
+#news iframe { height: 90svh; width: 100%; }
 
-a.nav-link.current-position::after {
-  position: absolute;
-  left: 0;
-  content: '';
-  width: 100%;
-  height: 1px;
-  background: black;
-  bottom: -3px;
-  transform: scale(0, 1);
-  transform-origin: center top;
-  transition: transform 0.3s;
-  transform: scale(1, 1);
-}
+/* #research */
+/* #research img { width: 80%; } */
 
-/* News */
-#news iframe {
-  height: 90svh;
-  width: 100%;
-}
+/* #people */
+#people .icons i { font-size: 240%; color: #5f5f5f }
+#people .icons i:hover { color: black; transition: 0.5s; }
+#people .button003 a { margin-left: 0; text-decoration: none; }
 
-#news-slide {
-  color: #5f5f5f;
-  height: 90svh;
-}
+.people-PI { display: flex; height: 40svh; margin-bottom: 4%; }
+.PI-info { margin-top: auto; margin-left: 5%; display: flex; flex-direction: column; }
+h3.PI-name { font-size: 260%; font-weight: 600; }
+.PI-name a { text-decoration: none; }
+p.PI-text { margin: 0; font-size: 140%; }
 
-#news-slide .splide__slide .news-panel {
-  height: 40vh;
-  padding: 0%;
-}
-
-#news-slide .splide__slide .news-panel img {
-  width: 100%;
-  height: 40%;
-  object-fit: cover;
-  margin-bottom: 4%;
-}
-
-#news-slide .splide__slide .news-panel.news-img-top img {
-  width: 100%;
-  height: 40%;
-  object-fit: cover;
-  object-position: top center;
-  margin-bottom: 4%;
-}
-
-#news-slide .splide__slide .news-panel {
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
-
-#news-slide .splide__slide .news-panel a {
-  text-decoration: underline;
-}
-
-#news-slide .splide__slide .news-panel a:hover,a:active {
-  color: black;
-}
-
-#news-slide .splide__slide .news-panel a::after {
-  display: none;
-}
-
-#news-slide .splide__slide .news-panel h2 {
-  font-size: 150%;
-  font-weight: 600;
-}
-
-#news-slide .splide__slide .news-panel h3 {
-  font-size: 120%;
-  /* font-weight: 600; */
-}
-
-#news-slide .splide__slide .news-panel p {
-  font-size: 120%;
-  /* font-weight: 600; */
-}
-
-/* Main contents */
-
-main {
-  max-width: 1140px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-main h1 {
-  margin-bottom: 2%;
-  text-align: center;
-}
-
-main p {
-  line-height: 130%;
-  text-align: justify;
-}
-
-#news, #research, #people, #opportunities {
-  min-height: 100svh;
-  padding-top: 10svh;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
-#research img {
-  width: 80%;
-}
-
-#people .people-PI {
-  height: 40svh;
-  box-sizing: border-box;
+/* if more than three people */
+/*#people .team-member {
   display: flex;
-}
-
-.people-PI .PI-info {
-  height: auto;
-  margin-left: 5%;
-  display: flex;
-	flex-direction: column;
-	align-content: flex-end;
-  margin-top: auto;
-}
-
-h2.PI-name {
-  width: 100%;
-  font-size: 260%;
-  font-weight: 600;
-}
-
-p.PI-text {
-  margin: 0;
-  font-size: 140%;
-}
-
-.PI-info i {
-  font-size: 240%;
-  color: #5f5f5f
-}
-
-.PI-info i:hover {
-  color: black;
-  transition: 0.5s;
-}
-
-.PI-info .button003 a {
-  margin-left: 0;
-}
-
-
-#people .team-member {
-  /* if more than three people */
-  /* display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center; */
-}
+  justify-content: center;
+}*/
 
-
-#people .people-PGR {
+.people-PGR {
   height: 40svh;
   /* width: 33.3%; if more than three people */
-  box-sizing: border-box;
   display: flex;
   /* flex-direction: column; if more than three people */
   /* padding-right: 2%;  if more than three people */
   /* margin-bottom: 4%;  if more than three people */
 }
+.PGR-info { margin-top: auto; margin-left: 5%; display: flex;	flex-direction: column; }
+h3.PGR-name { font-size: 260%; font-weight: 600; }
+p.PGR-text { margin: 0; font-size: 140%; }
 
-.people-PGR .PGR-info {
-  height: auto;
-  margin-left: 5%;
-  display: flex;
-	flex-direction: column;
-	align-content: flex-end;
-  margin-top: auto;
-}
-
-h2.PGR-name {
-  width: 100%;
-  font-size: 260%;
-  font-weight: 600;
-}
-
-p.PGR-text {
-  margin: 0;
-  font-size: 140%;
-}
-
-.PGR-info .icons i {
-  font-size: 240%;
-  color: #5f5f5f
-}
-
-.PGR-info i:hover {
-  color: black;
-  transition: 0.5s;
-}
-
-.PGR-info .button003 a {
-  margin-left: 0;
-}
-
-#opportunities img {
-  height: 20svh;
-  width: 100%;
-  object-fit: cover;
-}
-
+/* #opportunities */
+#opportunities img { width: 100%; height: 20svh; object-fit: cover; }
 #opportunities li {
   list-style: circle;
   list-style-position: inside;
@@ -484,15 +223,9 @@ p.PGR-text {
   margin-left: 10px;
 }
 
-#contact {
-  height: 90svh;
-  padding-top: 10svh;
-  padding-left: 10%;
-  padding-right: 10%;
-}
-
+/* #contact */
+#contact { min-height: 90svh; height: 90svh; padding-top: 10svh; }
 .contact-box{
-  width: 100%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -520,12 +253,7 @@ p.PGR-text {
   display: flex;
   flex-direction: column;
 }
-
-.contact-item h3 {
-  font-weight: bold;
-  text-align: left;
-  margin: 0.2em 0 0.2em 0;
-}
+.contact-item h3 { font-weight: bold; text-align: left; margin: 0.2em 0 0.2em 0; }
 
 /* Footer */
 footer {
@@ -540,239 +268,92 @@ footer {
   padding: 0 5%;
   z-index: 10000;
 }
+footer p { font-size: 120%; }
+footer .icons { font-size: 240%; margin-bottom: 1%; }
 
-footer p {
-  font-size: 120%;
-}
+/* ==========================================================================
+   5. PAGE-SPECIFIC: NEWS.HTML, KITA-CV.HTML
+   ========================================================================== */
+/* news.html */
+#news-slide { height: 90svh; }
 
-footer .icons {
-  font-size: 240%;
-  margin-bottom: 1%;
-}
+.news-panel { height: 40vh; padding: 0%; overflow-wrap: break-word; hyphens: auto; }
+.news-panel h3 { font-size: 150%; font-weight: 600; }
+.news-panel p { font-size: 120%; }
+
+.news-panel img { width: 100%; height: 40%; margin-bottom: 4%; object-fit: cover; }
+.news-panel img.pos-top { margin-bottom: 4%; }
 
 /* kita-cv.html */
-#experience, #education, #awards, #research-interest, #society, #research-statement, #publications, #fundings, #committees, #review, #teaching-statement, #supervision, #administrative {
-  padding-left: 10%;
-  padding-right: 10%;
-  margin-top: 4%;
+#cv-page h1 { text-align: left; }
+#cv-page h2 { font-size: 260%; font-weight: 400; text-align: left; }
+#cv-page section { min-height: auto; margin-top: 4%; padding-top: 0%;}
+
+#pi-top-info { margin-top: 0!important; }
+#pi-top-info h1 { margin-bottom: 5%; }
+#pi-top-info figure { margin: 0 0% 2% 2%; width: 30%; float: right; }
+#pi-top-info figure figcaption { text-align: left; background-color: rgb(240, 240, 240); padding: 5%; }
+#pi-top-info figure figcaption ul { list-style: none; margin: 2% 0; padding-left: 5%; }
+.pi-top-info-items { display: flex; }
+
+table.cv { margin-left: 2%; border-collapse: collapse; }
+table.cv td { vertical-align: top; font-size: 140%; padding-bottom: 10px; }
+table.cv td.time { white-space: nowrap; width: 120px; font-weight: bold; }
+table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-direction: column; }
+
+#cv-page ol { font-size: 140%; padding-left: 2em; }
+#cv-page ol li { list-style-position: outside; padding-left: 1em; }
+.cv-list li { list-style-position: inside; font-size: 140%; padding-left: 1em; }
+
+#research-statement figure { padding: 1% 10%; border-top: solid 1px; border-bottom: solid 1px; }
+
+/* .print-off {
+  display: inline;
+} */
+
+/* ==========================================================================
+   6. ANIMATIONS & REVEALS
+   ========================================================================== */
+
+.fade-in, .fade-left, .fade-right, .fade-up {
+  opacity: 0;
+  transition: all 1.0s ease-out;
+}
+.fade-left { transform: translateX(-50px); }
+.fade-right { transform: translateX(50px); }
+.fade-up { transform: translateY(50px); }
+
+/* Triggered Class from JS */
+.is-visible {
+  opacity: 1 !important;
+  transform: translate(0, 0) !important;
 }
 
-#pi-top-info {
-  padding: 0 10%;
-}
-
-#pi-top-info h1 {
-  text-align: left;
-  margin-bottom: 5%;
-}
-
-#pi-top-info figure {
-  margin: 0 0% 2% 2%;
-  width: 30%;
-  float: right;
-}
-
-#pi-top-info figure figcaption {
-  text-align: left;
-  background-color: rgb(240, 240, 240);
-  padding: 5%;
-}
-
-#pi-top-info figure figcaption ul {
-  list-style: none;
-  margin: 2% 0;
-  padding-left: 5%;
-}
-
-.pi-top-info-items {
-  display: flex;
-}
-
-table.cv {
-  margin-left: 2%;
-}
-
-table.cv td {
-  vertical-align: top;
-}
-
-table.cv td.time {
-  white-space: nowrap;
-  width: 120px;
-}
-
-table.cv td.item {
-  padding-left: 10px;
-  white-space: wrap;
-  display: flex;
-  flex-direction: column;
-}
-
-ol {
-  font-size: 140%;
-  padding-left: 2em;
-}
-
-ol li {
-  list-style-position: outside;
-  padding-left: 1em;
-}
-
-.cv-list li {
-  list-style-position: inside;
-  font-size: 140%;
-  padding-left: 1em;
-}
-
-#research-statement figure {
-  padding: 1% 10%;
-  border-top: solid 1px;
-  border-bottom: solid 1px;
-}
-
-/* Common styles */
-a:hover,a:active {
-  color: black;
-}
-
-a, a:visited {
-	text-decoration: none;
-  position: relative;
-}
-
-a::after {
-  position: absolute;
-  left: 0;
-  content: '';
-  width: 100%;
-  height: 1px;
-  background: black;
-  bottom: -3px;
-  transform: scale(0, 1);
-  transform-origin: center top;
-  transition: transform 0.3s;
-}
-
-a:hover::after {
-  transform: scale(1, 1);
-}
-
-.icons a::after {
-  display: none;
-}
-
-h1 {
-  font-size: 350%;
-  font-weight: 400;
-}
-
-h2 {
-  font-size: 260%;
-  font-weight: 400;
-}
-
-h3 {
-  font-size: 160%;
-  font-weight: 400;
-}
-
-p {
-  font-size: 140%;
-}
-
-tr {
-  margin-left: 5%;
-}
-
-td {
-  font-size: 140%;
-}
-
-img {
-  max-width: 100%;
-}
-
-figure {
-  margin-top: 2%;
-  margin-bottom: 2%;
-  width: auto;
-  display: block;
-  text-align:center;
-}
-
-figcaption{
-	display: block;
-	margin-top: 0.5em;
-	font-size: 120%;
-	text-align: center;
-}
-
-.fade-in {
-	opacity: 0;
-  transition-delay: 0.5s;
-	transition: 1s;
-  z-index: 10000;
-}
-
-.fade-left {
-	opacity: 0;
-	transform: translateX(-50px);
-  transition-delay: 0.5s;
-	transition: 1s;
-  z-index: 10000;
-}
-
-.fade-right {
-	opacity: 0;
-	transform: translateX(50px);
-  transition-delay: 0.5s;
-  /* animation-delay: 2s; */
-	transition: 1s;
-  z-index: 10000;
-}
-
-.fade-up{
-	opacity: 0;
-	transform: translateY(50px);
-	transition: 1s;
-  z-index: 10000;
+/* Disable Animations for CV Page */
+#cv-page .fade-in, #cv-page .fade-left, #cv-page .fade-right, #cv-page .fade-up {
+  opacity: 1 !important; transform: none !important; transition: none !important;
 }
 
 .print-on {
   display: none;
 }
 
-/* .print-off {
-  display: inline;
-} */
+/* ==========================================================================
+   7. ACCESSORIES
+   ========================================================================== */
 
 /* Buttons */
-/* ref: https://dubdesign.net/download/html-css/button-design/ */
-/* 003 */
-.button003 {
-  margin-top: 3%;
-  margin-bottom: 3%;
-}
+/* 003 ref: https://dubdesign.net/download/html-css/button-design/ */
+.button003 { margin-top: 3%; margin-bottom: 3%; }
 .button003 a {
-  background: #eee;
-  border-radius: 50px;
-  position: relative;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin: 0 auto;
-  max-width: 260px;
-  padding: 10px 25px;
-  color: #313131;
+  background: #eee; border-radius: 50px; /* position: relative; */
+  max-width: 260px; padding: 10px 25px; /* margin: 0 auto; */
+  display: flex; justify-content: space-around; align-items: center;
+  font-size: 160%; font-weight: 500; color: #313131;
   transition: 0.3s ease-in-out;
-  font-size: 160%;
-  font-weight: 500;
 }
-.button003 a:hover {
-  background: #313131;
-  color: #FFF;
-}
-.button003 a:after {
+.button003 a:hover { background: #313131; color: #FFF; }
+/* .button003 a:after {
   content: '';
   width: 5px;
   height: 5px;
@@ -786,65 +367,24 @@ figcaption{
   right: 20px;
   border-radius: 1px;
   transition: 0.3s ease-in-out;
-}
-.button003 a:hover:after {
+} */
+/* .button003 a:hover:after {
   border-color: #FFF;
-}
+} */
+
+/* ==========================================================================
+   8. RESPONSIVE & PRINT
+   ========================================================================== */
 
 /* mobile */
 @media screen and (max-width: 600px) {
-  html {
-    font-size: 50%;
-  }
+  /* Global Typography */
+  h1, h2 { font-size: 300%; }
+  body { overflow: hidden; }
 
-  p {
-    font-size: 160%;
-  }
+  .mobile-off { display: none; }
 
-  .mobile-off {
-    display: none;
-  }
-
-  body {
-    overflow: hidden;
-  }
-
-  /* header */
-  .menu-mobile {
-    width: 100vw;
-    height: 10svh;
-    /* display: inline; */
-    flex-wrap: nowrap;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 0 4%;
-    z-index: 10000;
-    position: fixed;
-	  bottom: 0;
-  }
-
-  .menu-mobile ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    /* padding: 20px; */
-    margin: 0;
-    font-size: 140%;
-  }
-  
-  .menu-mobile ul li {
-    text-align: center;
-    margin: 0 auto;
-    white-space: nowrap;
-    padding: 0 8%;
-  }
-
-  .menu-pc {
-    display: none;
-  }
-
+  /* HEADER & HERO */
   header #top-container {
     padding-top: 0;
     display: flex;
@@ -859,12 +399,10 @@ figcaption{
     flex-direction: column;
     margin: auto 0;
   }
-  .left-panel p {
-    width: 80%;
-  }
-  #text-slide {
-    margin: 20px 0 0;
-  }
+  .left-panel p { width: 80%; }
+  .left-panel p.pi-name { letter-spacing: 0.5px; font-size: 4vw; white-space: nowrap;}
+  #text-slide { margin: 20px 0 0; }
+
   #top-container .right-panel {
     width: 60%;
     position: absolute;
@@ -872,131 +410,48 @@ figcaption{
     right: 5%;
     z-index: 0;
   }
-  #img-slide .splide__track {
-    height: 40svh;
-  }
+  #img-slide .splide__track { height: 40svh; }
 
-  /* main */
+  /* MAIN (MOBILE) */
+  section { padding: 5svh 5% 10svh 5%; }
 
-  #news-slide .splide__slide div p {
-    font-size: 150%;
-  }
+  /* NEWS SECTION (MOBILE) */
+  #news-slide h3 { font-size: 12px; }
+  #news-slide p { font-size: 10px; }
 
-  #news, #research, #people, #opportunities, #contact {
-    padding-top: 5svh;
-    padding-bottom: 10svh;
-    padding-left: 5%;
-    padding-right: 5%;
-  }
+  /* PEOPLE SECTION (MOBILE) */
+  #people img { width: 40vw; object-fit: cover; }
+  #people .icons i { font-size: 5vw; }
+  h3.PI-name, h3.PGR-name { font-size: 6vw; white-space: nowrap; }
+  p.PI-text, p.PGR-text {font-size: 14px; text-align: left;}
 
-  #contact {
-    height: 85svh;
-  }
+  /* CONTACT SECTION (MOBILE) */
+  #contact { height: 95svh; }
+  .contact-box{ width: 100%; display: flex; flex-direction: column; }
+  .contact-box iframe{ width: 100%; height: 300px; padding: 1em; display: block; }
+  .contact-item{ width: 100%; }
+  .contact-item h3 { font-weight: bold; text-align: left; margin: 0.2em 0 0.2em 0; }  
 
-  #research img {
-    width: 100%;
-  }
+  footer { margin-bottom: 5svh; }
 
-  .people-PI {
-    height: auto;
-    margin: 0;
-    display: flex;
-    /* flex-direction: column; */
-    align-content: flex-end;
-  }
+  /* KITA-CV.HTML */
+  #cv-page section {padding: 0 5%; margin-top: 5%;}
 
-  #people img {
-  width: 40vw;
-  height: auto;
-  object-fit: cover;
-  }
+  #pi-top-info { margin-top: 5%!important; }
+  #pi-top-info figure { margin: 0; width: 35%;  float: right; }
+  #pi-top-info figure figcaption { display: none; }
 
-  .contact-box{
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-  }
-  .contact-box iframe{
-    width: 100%;
-    height: 300px;
-    padding: 1em;
-    display: block;
-  }
-  .contact-item{
-    width: 100%;
-  }
-  
-  .contact-item h3 {
-    font-weight: bold;
-    text-align: left;
-    margin: 0.2em 0 0.2em 0;
-  }  
-
-  footer {
-    margin-bottom: 5svh;
-  }
-
-/* kita-cv.html */
-  #experience, #education, #awards, #research-interest, #society, #research-statement, #publications, #fundings, #committees, #review, #teaching-statement, #supervision, #administrative {
-    padding-left: 5%;
-    padding-right: 5%;
-    margin-top: 2%;
-  }
-
-  #pi-top-info {
-    padding: 0 5%;
-    margin-top: 5%;
-  }
-
-  #pi-top-info figure {
-    margin: 0;
-    width: 35%;
-    float: none;
-    float: right;
-  }
-
-  #pi-top-info figure figcaption {
-    display: none;
-  }
-
-  table.cv td.time {
-    white-space: nowrap;
-    width: 80px;
-  }
-  
-  table.cv td.item {
-    padding-left: 10px;
-    white-space: wrap;
-    display: flex;
-    flex-direction: column;
-  }
+  table.cv td.time { white-space: nowrap; width: 80px; }
+  table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-direction: column; }
 }
 
 @media print {
-  nav {
-    display: none;
-  }
-
-  main {
-    padding-top: 1%;
-    padding-bottom: 1%;
-    padding-left: 1%;
-    padding-right: 1%;
-  }
-
-  #pi-top-info, #experience, #education, #awards, #research-interest, #society, #research-statement, #publications, #fundings, #committees, #review, #teaching-statement, #supervision, #administrative {
-    padding: 0%;
-  }
-
-  li.print-on {
-    display: list-item;
-  }
-
-  .print-on {
-    display: block;
-  }
-
-  .print-off {
-    display: none;
-  }
+  nav { display: none; }
+  main { padding: 1%; }
+  #cv-page section { padding: 0%; }
+  li.print-on { display: list-item; }
+  .print-on { display: block; }
+  .print-off { display: none; }
 }
+
+

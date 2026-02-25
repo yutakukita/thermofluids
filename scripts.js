@@ -1,144 +1,91 @@
-// JavaScript Document
-
-//--- Splide image sliders ---//
-document.addEventListener( 'DOMContentLoaded', function () {
-  var main = new Splide( '#img-slide', {
-    type      : 'loop',
-    autoplay  : true,
-    resetProgress: false,
-    perPage   : 1,
-    perMove   : 1,
-    gap       : 500,
-    interval  : 8000,
-    speed     : 2000,
-    focus     : 'center',
-    rewind    : true,
-    pagination: false,
-    arrows    : false,
-    updateOnMove: true,
-  } );
-
-  var text = new Splide( '#text-slide', {
-    type      : 'fade',
-    // type: 'loop',
-    // direction : 'ttb',
-    perPage   : 1,
-    pagination: false,
-    arrows    : false,
-    updateOnMove: true,
-  } );
-  main.sync( text );
-  main.mount();
-  text.mount();
-} );
-
-//--- Fix the navigation at the top of the page after scrollong ---//
-  $(function() {
-    var offset = $('.global-nav').offset();
- 
-    $(window).scroll(function () {
-        if ($(window).scrollTop() > offset.top) {
-            $('.global-nav').addClass('nav_fixed');
-        } else {
-            $('.global-nav').removeClass('nav_fixed');
-        }
-    });
-});
-
-//--- FADE-IN---//
-jQuery(function($){
-	// execute when scrolling and loading
-	$(window).on('scroll load', function(){
-		$('.fade-in').each( function() {
-			var this_pos = $(this).offset().top;
-			var scroll = $(window).scrollTop();
-			var windowHeight = $(window).height();
-			if ( scroll > this_pos - windowHeight ) {
-				$(this).css({
-					opacity: 1,
-					transform: 'translate(0)'
-				});
-			}
-		});
-	});
-});
-
-//--- FADE-IN FROM LEFT ---//
-jQuery(function($){
-	// execute when scrolling and loading
-	$(window).on('scroll load', function(){
-		$('.fade-left').each( function() {
-			var this_pos = $(this).offset().top;
-			var scroll = $(window).scrollTop();
-			var windowHeight = $(window).height();
-			if ( scroll > this_pos - windowHeight ) {
-				$(this).css({
-					opacity: 1,
-					transform: 'translate(0)'
-				});
-			}
-		});
-	});
-});
-
-//--- FADE-IN FROM RIGHT ---//
-jQuery(function($){
-	// execute when scrolling and loading
-	$(window).on('scroll load', function(){
-		$('.fade-right').each( function() {
-			var this_pos = $(this).offset().top;
-			var scroll = $(window).scrollTop();
-			var windowHeight = $(window).height();
-			if ( scroll > this_pos - windowHeight ) {
-				$(this).css({
-					opacity: 1,
-					transform: 'translate(0)'
-				});
-			}
-		});
-	});
-});
-
-//--- FADE-IN FROM BOTTOM ---//
-jQuery(function($){
-	// execute when scrolling and loading
-	$(window).on('scroll load', function(){
-		$('.fade-up').each( function() {
-			var this_pos = $(this).offset().top;
-			var scroll = $(window).scrollTop();
-			var windowHeight = $(window).height();
-			if ( scroll > this_pos - windowHeight ) {
-				$(this).css({
-					opacity: 1,
-					transform: 'translate(0)'
-				});
-			}
-		});
-	});
-});
-
-//--- Sync the navigation menu with the current section ---//
-$(function () {
-  $(window).on("load scroll resize", function () {
-
-    var st = $(window).scrollTop();
-    var wh = $(window).height();
-
-    $('.sec-scroll-point').each(function (i) {
-      var tg = $(this).offset().top;
-      var id = $(this).attr('id');
-
-      if (st > tg  - wh + (wh / 2)) {
-        $(".nav-link").removeClass("current-position");
-        var link = $(".nav-link[href *= " + id +"]");
-        $(link).addClass("current-position");
-      }
-
-      if (st < wh) {
-        $(".nav-link").removeClass("current-position");
-      }
+document.addEventListener('DOMContentLoaded', function () {
+    // 1. Image Slider (Master)
+    var main = new Splide('#img-slide', {
+        type      : 'loop',
+        autoplay  : true,
+        resetProgress: false,
+        perPage   : 1,
+        perMove   : 1,
+        gap       : 500,
+        interval  : 8000,
+        speed     : 2000,
+        focus     : 'center',
+        rewind    : true,
+        pagination: false,
+        arrows    : false,
+        updateOnMove: true,
     });
 
-  });
+    // 2. Text Slider (Slave)
+    var text = new Splide('#text-slide', {
+    type: 'fade',
+    rewind: true,
+    perPage: 1,
+    pagination: false,
+    arrows: false,
+    });
 
+    // 3. Sync and Mount
+    main.sync(text);
+    main.mount();
+    text.mount();
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    // 2. Sticky Navigation - Triggered after passing the Header
+    //--- Fix the navigation at the top of the page after scrollong ---//
+
+    // 2. Sticky Navigation - Triggers exactly when the nav touches the top
+    const nav = document.querySelector('.global-nav');
+
+    if (nav) {
+        // Capture the initial position of the nav from the top of the page
+        const navTop = nav.offsetTop;
+
+        window.addEventListener('scroll', () => {
+            // Check if the scroll position has reached or passed the nav's position
+            if (window.scrollY > navTop) {
+                nav.classList.add('nav_fixed');
+            } else {
+                nav.classList.remove('nav_fixed');
+            }
+        });
+    }   
+
+    // 3. Performance-Focused Animations (Intersection Observer)
+    const observerOptions = { threshold: 0.2 };
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // Optional: animate only once
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in, .fade-left, .fade-right, .fade-up')
+            .forEach(el => observer.observe(el));
+
+    // 4. Navigation Syncing (Active Link)
+    const sections = document.querySelectorAll('.sec-scroll-point');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    window.addEventListener('scroll', () => {
+        let currentId = "";
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            if (window.scrollY >= sectionTop - window.innerHeight / 3) {
+                currentId = section.getAttribute('id');
+            }
+        });
+
+        navLinks.forEach(link => {
+            link.classList.remove('current-position');
+            if (link.getAttribute('href').includes(currentId) && currentId !== "") {
+                link.classList.add('current-position');
+            } else if (window.scrollY < 200 && link.getAttribute('href') === "#") {
+                link.classList.add('current-position');
+            }
+        });
+    });
 });

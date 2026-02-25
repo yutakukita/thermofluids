@@ -25,68 +25,73 @@ SOFTWARE.
 
 <html lang="en" dir="ltr">
   <head>
-    <!-- Google tag (gtag.js) -->
+    <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-4Q8BRLJR1W"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-4Q8BRLJR1W');
     </script>
 
     <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
-    <link rel="shortcut icon" href="images/icons/favicon.ico"/>
-    <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,-25..0" />
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-    <style>
-    .material-symbols-outlined {display: inline-flex; vertical-align: middle; font-size: 3rem;}
-    </style>
-    <link rel="stylesheet" href="fontello/css/fontello.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-    <title>Thermofluid Physics | Yutaku Kita</title>
     <meta name="description" content="
       Our UK-based research group, led by Dr. Yutaku Kita in the Department of Engineering at King's College London, focuses on fundamental problems in thermofluids.
       We study the coupling of multiphase flow, wetting, and heat and mass transfer, primarily for systems involving droplets and bubbles.
       Our research is driven by a desire to develop more efficient energy systems, as well as to improve manufacturing and biological processes.
       ">
+    <meta property="og:image" content="images/people/ykita-large.webp"/>
+
+    <title>Thermofluid Physics | Yutaku Kita</title>
+    <link rel="shortcut icon" href="images/icons/favicon.ico"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,-25..0" />
+    <link rel="stylesheet" href="fontello/css/fontello.css">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    
+    <style>
+      /* Keeps icons aligned with text without a separate file load */
+      .material-symbols-outlined {display: inline-flex; vertical-align: middle; font-size: 3rem;}
+    </style>
   </head>
   <body>
     <header>
       <div id="top-container" class="fade-in">
         <div class="left-panel">
-          <h3> Dr Yutaku Kita | King's College London</h3>
+          <p class="pi-name"> Dr Yutaku Kita | King's College London</p>
           <h1> Thermofluid Physics</h1>
           <div id="text-slide" class="splide">
             <div class="splide__track">
               <ul class="splide__list">
                 <li class="splide__slide">
-                  <h2>Hydrothermal Waves</h2>
+                  <h3>Hydrothermal Waves</h3>
                   <p>When observing an evaporating drop of organic fluids such as ethanol using an IR camera, it shows self-driven hydrothermal waves (HTWs) travelling radially.
                     The HTWs are driven by surface tension directed by temperature gradients due to the evaporation (Marangoni effect).
                   </p>
                 </li>
                 <li class="splide__slide">
-                  <h2>Walking Drops</h2>
+                  <h3>Walking Drops</h3>
                   <p>Microfabrication enables tuning of surface wettability.
                     A water drop on a wettability contrast moves toward the more hydrophilic region. <br>
                     Manipulation of drops has potential applications in the area of microfluidics.
                   </p>
                 </li>
                 <li class="splide__slide">
-                  <h2>Spray Cooling</h2>
+                  <h3>Spray Cooling</h3>
                   <p>Despite the exceptional cooling capacity, some mystery still remains around spray cooling e.g. the transition of boiling regimes.
                     Fundamental understanding of hydrodynammics and heat transfer of impacting droplets will aid in the optimisation of metal quenching, emergency core cooling and electronics thermal management etc.
                   </p>
                 </li>
                 <li class="splide__slide">
-                  <h2>Condensation</h2>
+                  <h3>Condensation</h3>
                   <p>Sustaining <i>dropwise</i> condensation is an engineers' dream as it is one of the most effcient heat transfer mechanisms.
                     We investigate the transient nature of heat transfer through droplet nucleation, growth, marge and depature to design more efficient energy systems.
                   </p>
@@ -105,14 +110,12 @@ SOFTWARE.
                 <li class="splide__slide"><img src="images/top/4-condensation.gif" alt=""></li>
               </ul>
             </div>
-            <div class="splide__progress">
-              <div class="splide__progress__bar"></div>
-            </div>
+            <div class="splide__progress"><div class="splide__progress__bar"></div></div>
           </div>
         </div>
       </div>
-      <nav>
-        <div class="menu-mobile">
+      <nav aria-label="Main Navigation">
+        <!-- <div class="menu-mobile">
           <ul>
             <li><a href="#" class="nav-link"><span class="material-symbols-outlined">water_drop</span><br>Top</a><p></p></li>
             <li><a href="#research" class="nav-link"><span class="material-symbols-outlined">science</span><br>Research</a></li>
@@ -120,8 +123,8 @@ SOFTWARE.
             <li><a href="#opportunities" class="nav-link"><span class="material-symbols-outlined">work</span><br>Join us</a></li>
             <li><a href="#contact" class="nav-link"><span class="material-symbols-outlined">location_on</span><br>Contact</a></li>
           </ul>
-        </div>
-        <div class="menu-pc global-nav">
+        </div> -->
+        <div class="global-nav mobile-off">
           <ul>
             <li><a href="#" class="nav-link">TOP</a></li>
             <li><a href="#news" class="nav-link">NEWS</a></li>
@@ -133,16 +136,19 @@ SOFTWARE.
         </div>
       </nav>
     </header>
+
     <main>
       <section id="news" class="sec-scroll-point">
-        <h1 class="fade-left">News</h1>
+        <!-- <h1 class="fade-left">News</h1> -->
+        <h2 class="fade-left">News</h2>
         <iframe src="news.html" frameborder="0" class="fade-right"></iframe>
       </section>
+
       <section id="research" class="sec-scroll-point">
-        <h1 class="fade-left">Our Mission</h1>
+        <h2 class="fade-left">Our Mission</h2>
         <div class="fade-right">
           <figure>
-            <img src="images/research/research-overview-droplet.svg" alt="">
+            <img src="images/research/research-overview-droplet.svg" alt="Research Diagram">
             <figcaption>Examples of research topics on droplets and applications</figcaption>
           </figure>
           <p>Welcome to the Thermofluid Physics Group, led by <b>Dr Yutaku Kita</b> in the Department of Engineering at King's College London.
@@ -155,27 +161,25 @@ SOFTWARE.
             </p>
           <p>&ZeroWidthSpace;</p>
           <p>We collaborate both nationally and internationally with academic institutions and industry. For example, we are a partner of the cross-continental EU MSCA-RISE <a href="https://thermasmart.eng.ed.ac.uk/" target="_blank">ThermaSMART</a> Project.</p>
-          <div class="button003">
+          <!-- <div class="button003">
             <a href="#">MORE ABOUT RESEARCH</a>
-          </div>
+          </div> -->
         </div>
       </section>
+
       <section id="people" class="sec-scroll-point">
-        <h1 class="fade-left">Team</h1>
+        <h2 class="fade-left">Team</h2>
         <div class="people-PI fade-right">
           <img src="images/people/ykita-large.webp" alt="Yutaku Kita">
           <div class="PI-info">
-            <h2 class="PI-name"><a href="https://www.kcl.ac.uk/people/yutaku-kita" target="_blank">Dr Yutaku Kita</a></h2>
+            <h3 class="PI-name"><a href="https://www.kcl.ac.uk/people/yutaku-kita" target="_blank">Dr Yutaku Kita</a></h3>
             <p class="PI-text">&ZeroWidthSpace;</p>
-            <!-- <p class="PI-text">Group Leader</p> -->
             <p class="PI-text"><b>Group Leader</b></p>
             <p class="PI-text">Lecturer in Engineering</p>
             <p class="PI-text">&ZeroWidthSpace;</p>
             <p class="PI-text">Department of Engineering</p>
             <p class="PI-text">Faculty of Natural, Mathematical &amp; Engineering Sciences</p>
             <p class="PI-text">King's College London</p>
-            <!-- <p class="PI-text">Strand, London WC2R 2LS</p>
-            <p class="PI-text">Room S2.23</p> -->
             <div class="icons">
               <a href="mailto:yutaku.kita&#64;kcl.ac.uk" target="_blank" title="Email"><i class="icon-mail"></i></a>
               <a href="https://www.twitter.com/YutakuKita" target="_blank" title="@YutakuKita"><i class="icon-twitter"></i></a>
@@ -189,52 +193,43 @@ SOFTWARE.
             </div>
           </div>
         </div>
-        <p>&ZeroWidthSpace;</p>
+
         <div class="team-member">
           <div class="people-PGR fade-right">
             <img src="images/people/dgibbons.webp" alt="Yutaku Kita">
             <div class="PGR-info">
-              <h2 class="PGR-name">Daniel Gibbons</h2>
-              <p class="PI-text">&ZeroWidthSpace;</p>
+              <h3 class="PGR-name">Daniel Gibbons</h3>
+              <p class="PGR-text">&ZeroWidthSpace;</p>
               <p class="PGR-text"><b>PhD Student</b> since June 2024</p>
               <p class="PGR-text"><i>Spray Cooling</i></p>
-              <!-- <p class="PI-text">&ZeroWidthSpace;</p> -->
-              <!-- <div class="icons">
-                <a href="mailto:yutaku.kita&#64;kcl.ac.uk" target="_blank" title="Email"><i class="icon-mail"></i></a>
-                <a href="https://www.twitter.com/YutakuKita" target="_blank" title="@YutakuKita"><i class="icon-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/yutaku-kita-76ab15273/" target="_blank" title="LinkedIn"><i class="icon-linkedin"></i></a>
-                <a href="https://scholar.google.com/citations?user=KSo2Qe0AAAAJ&hl=en" target="_blank" title="Google Scholar"><i class="icon-google-scholar-square"></i></a>
-                <a href="https://orcid.org/0000-0003-4994-4689" target="_blank" title="ORCiD"><i class="icon-orcid"></i></a>
-                <a href="https://www.researchgate.net/profile/Yutaku-Kita" target="_blank" title="ResearchGate"><i class="icon-researchgate-square"></i></a>
-              </div> -->
             </div>
           </div>
         </div>
-
       </section>
+      
       <section id="opportunities" class="sec-scroll-point">
-        <h1 class="fade-left">Join us!</h1>
+        <h2 class="fade-left">Join us!</h2>
         <div class="fade-right">
           <img src="images/opportunities/strand.webp" alt="">
           <p>&ZeroWidthSpace;</p>
-          <h3><b>We support ambitious PhD candidates and postdocs</b></h3>
+          <p><b>We support ambitious PhD candidates and postdocs</b></p>
           <p>Thermofluid Physics Group is based in the Department of Engineering at KCL — an internationally renowned university delivering exceptional education and world-leading research.
             Join us in a vibrant area of central London with world-wide links full of unique opportunities that boost your personal and professional development.
             Also see <a href="https://www.kcl.ac.uk/study/why-kings" target="_blank">Why King's?</a>
           </p>
           <p>&ZeroWidthSpace;</p>
-          <p><b>PhD opportunities</b></p>
+          <h3><b>PhD opportunities</b></h3>
           <ul>
             <li><b>PhD Studentship(s):</b> <a href="https://www.surgerycdt.com/project/ice-slurry-spray-cooling-for-intraoperative-organ-protection/" target="_blank">Organ Cooling</a> (Deadline: 27 Feb 2026) and <a href="https://www.findaphd.com/phds/project/phd-studentship-from-droplet-to-spray-a-mechanistic-approach-to-phase-change-thermal-management/?p194520" target="_blank" rel="noopener noreferrer">Spray Cooling</a> (UK Student Only, Deadline: 27 Mar 2026).</li>
             <li><b>K-CSC Programme: </b>Studentship for Chinese students jointly funded by KCL and the China Scholarship Council (CSC). See <a href="https://www.kcl.ac.uk/study-legacy/funding/kings-china-scholarship-council-phd-scholarship-programme-k-csc" target="_blank">here.</a></li>
           </ul>
           <p>&ZeroWidthSpace;</p>
-          <p><b>Postdoc opportunities</b></p>
+          <h3><b>Postdoc opportunities</b></h3>
           <ul>
             <li><b>Opening position: </b>Currently, we have no vacancy.</li>
           </ul>
           <p>&ZeroWidthSpace;</p>
-          <p><b>UG & MEng</b></p>
+          <h3><b>UGs</b></h3>
           <ul>
             <li><b>King's UG Research Fellowship (KURF): </b>TBA</li>
             <!-- 
@@ -248,7 +243,7 @@ SOFTWARE.
         </div>
       </section>
       <section id="contact" class="sec-scroll-point">
-        <h1 class="fade-left">Contact</h1>
+        <h2 class="fade-left">Contact</h2>
         <div class="contact-box fade-right">
           <img src="images/contact/kcl-quad.webp" alt="" class="mobile-off">
           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9932.377097720611!2d-0.1324764921874642!3d51.51148640000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b5a3b455dd%3A0xb0643efb7ed0928d!2sKing&#39;s%20College%20London!5e0!3m2!1sen!2suk!4v1681262285082!5m2!1sen!2suk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
@@ -261,9 +256,9 @@ SOFTWARE.
             <p>Strand, London WC2R 2LS, UK</p>
           </div>
           <div class="contact-item">
-            <h3>From Heathrow Airport</h3>
-            <p><b>By Underground</b> ~1 hour</p>
-            <p>Picadilly line to Holborn + 12 min walk</p>
+            <h3>Directions</h3>
+            <p><b>From Heathrow Airport</b> ~1 hour</p>
+            <p>Picadilly Line to Holborn + 12 min walk</p>
           </div>
         </div>
       </section>
@@ -282,6 +277,6 @@ SOFTWARE.
 
     <!-- Javascripts -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
-    <script type="text/javascript" src="scripts.js"></script>
+    <script src="scripts.js"></script>
   </body>
 </html>

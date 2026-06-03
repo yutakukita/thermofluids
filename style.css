@@ -282,7 +282,8 @@ footer .icons { font-size: 240%; margin-bottom: 1%; }
 .news-panel p { font-size: 120%; }
 
 .news-panel img { width: 100%; height: 40%; margin-bottom: 4%; object-fit: cover; }
-.news-panel img.pos-top { margin-bottom: 4%; }
+.news-panel img.pos-top { object-position: top; }
+.news-panel img.pos-bottom { object-position: bottom; }
 
 /* kita-cv.html */
 #cv-page h1 { text-align: left; }

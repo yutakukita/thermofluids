@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Undergraduate Research Projects: Thermofluids</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+        }
+        h1 {
+            color: #111;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+        h2 {
+            color: #222;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #444;
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        p {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-top: 0;
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 5px;
+        }
+        blockquote {
+            background-color: #f9f9f9;
+            border-left: 4px solid #0053a0;
+            margin: 20px 0;
+            padding: 15px 20px;
+            font-style: italic;
+        }
+        blockquote ol {
+            margin-bottom: 0;
+            padding-left: 20px;
+        }
+        blockquote ol li {
+            font-style: normal;
+            margin-bottom: 10px;
+        }
+        blockquote ol li:last-child {
+            margin-bottom: 0;
+        }
+        hr {
+            border: 0;
+            border-top: 1px solid #ddd;
+            margin: 30px 0;
+        }
+        code {
+            font-family: SFMono-Regular, Consolas, "Liberation Mono", Menlo, monospace;
+            background-color: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-size: 90%;
+        }
+        figure {
+            margin: 20px 0;
+            text-align: center;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto 10px;
+        }
+        figcaption {
+            font-size: 85%;
+            color: #666;
+        }
+        a {
+            color: #0053a0;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .equation {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 1.1em;
+        }
+    </style>
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chhtml.js"></script>
+</head>
+<body>
+
+    <h1>Summer Undergraduate Research Projects: Thermofluids</h1>
+    <p><strong>Department of Engineering, King's College London</strong></p>
+    <p><strong>Academic Advisor:</strong> Dr Yutaku Kita (<a href="mailto:yutaku.kita@kcl.ac.uk">yutaku.kita@kcl.ac.uk</a>)</p>
+
+    <hr>
+
+    <h2>Introduction &amp; Context</h2>
+    <p>This document outlines undergraduate summer research projects tailored for Engineering students at King's College London. The projects span data analytics, literature synthesis, experimental mechatronics, pedagogical design, and computational fluid dynamics (CFD). Each outline includes the target year group, a project overview, core learning objectives, and a ready-to-use initial prompt to onboard the student.</p>
+
+    <hr>
+
+    <h2>Project 1: Data-Driven Drop Impact Regime Mapping</h2>
+    
+    <h3>Metadata</h3>
+    <ul>
+        <li><strong>Target Level:</strong> Year 2 Undergraduate (Engineering)</li>
+        <li><strong>Core Disciplines:</strong> Fluid Mechanics, Thermodynamics, Data Analytics &amp; Visualisation</li>
+    </ul>
+
+    <h3>Project Overview</h3>
+    <p>When a liquid droplet impinges upon a heated solid surface, its hydrodynamic and thermal behaviours—ranging from complete rebound and splashing to contact boiling and the Leidenfrost state—are dictated by a complex interplay of kinetic, surface, and thermal energies. This project tasks the student with mining existing academic literature to compile an empirical database of droplet impact outcomes. By normalising disparate data using the dimensionless Weber number (\(We = \frac{\rho v^2 D}{\sigma}\)) and surface temperature (\(T\)), the student will construct a comprehensive, unified "regime map" (\(We-T\)). This map will serve to identify transitional boundaries and evaluate discrepancies across historical and modern literature.</p>
+
+    <figure>
+        <img src="https://journals.aps.org/prl/article/10.1103/PhysRevLett.108.036101/deliverable/fc8bb6de-69ea-4236-8262-f637c78df40a" alt="Tran's droplet impact regime map image">
+        <figcaption><a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.108.036101" target="_blank">Tran's droplet impact regime map</a></figcaption>
+    </figure>
+
+    <h3>Key Learning Outcomes &amp; Deliverables</h3>
+    <ul>
+        <li>Deep understanding of relevant thermophysical properties (e.g., surface tension), inertial forces, and boiling regimes.</li>
+        <li>Proficiency in data extraction, normalisation, and handling conflicting multi-source datasets.</li>
+        <li>Advanced data visualisation skills using Python (Matplotlib).</li>
+        <li><strong>Deliverable:</strong> A unified digital \(We-T\) regime map with a categorised repository of source literature data.</li>
+    </ul>
+
+    <h3>Onboarding Prompt for the Student</h3>
+    <blockquote>
+        <p><strong>Welcome to the Summer Research Team!</strong></p>
+        <p>Your project is to develop a unified <strong>Drop Impact Regime Map (\(We-T\))</strong> based on data compiled from historical and recent literature. To get started, please complete the following tasks over your first two weeks:</p>
+        <ol>
+            <li><strong>Literature Review:</strong> Read the following 3 foundational papers:
+                <ul>
+                    <li>Bernardin &amp; Mudawar (1997): <a href="https://www.sciencedirect.com/science/article/pii/0017931096001196" target="_blank">https://www.sciencedirect.com/science/article/pii/0017931096001196</a></li>
+                    <li>Ventola (2015): <a href="https://www.sciencedirect.com/science/article/pii/S0017931015000927" target="_blank">https://www.sciencedirect.com/science/article/pii/S0017931015000927</a></li>
+                    <li>Tran et al. (2012): <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.108.036101" target="_blank">https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.108.036101</a></li>
+                </ul>
+                Focus heavily on how different authors define the physical boundaries between 'rebound', 'splashing', 'transition boiling', and the 'Leidenfrost state'.
+            </li>
+            <li><strong>Data Architecture Setup:</strong> You will be added to our repository where we have built the database. Learn the database's structure and how each literature dataset is stored in <code>.json</code> and <code>.py</code> files.</li>
+            <li><strong>Digitisation:</strong> Develop a Python script to digitise (extract values from) the graphs in literature. This should be able to read maps (\(We\)-\(T\), \(U\)-\(T\), etc., depending on the author) in an image format (e.g., PNG, JPG), extract each data point (i.e., Impact Outcome Category, \(We\), \(T\)) and store them in a <code>.json</code> file.</li>
+            <li><strong>First Milestone:</strong> Process the <a href="https://www.sciencedirect.com/science/article/pii/S0017931015000927" target="_blank">Ventola (2015)</a> impact map to begin with, and check whether you can reproduce the map on your Python platform.</li>
+        </ol>
+    </blockquote>
+
+    <hr>
+
+    <h2>Project 2: Interactive Heat Transfer Teaching Tool</h2>
+    
+    <h3>Metadata</h3>
+    <ul>
+        <li><strong>Target Level:</strong> Year 2 Undergraduate (Engineering)</li>
+        <li><strong>Core Disciplines:</strong> CAD Design, Instrumentation, Pedagogy, GUI Programming (Python/MATLAB)</li>
+    </ul>
+
+    <h3>Project Overview</h3>
+    <p>Abstract heat transfer theories can be challenging for undergraduate students to intuitively grasp during standard lectures. This project bridges engineering design with pedagogy by tasking the student to develop a low-cost, portable desktop laboratory demonstration rig for the Year 2 Heat and Mass Transfer module. The student will design a physical setup (e.g., a heated aluminium fin, a transient cooling sphere, visualisation using thermochromic paint, mini heat exchangers, etc.) instrumented with low-cost equipment and build a real-time graphical user interface (GUI). The GUI will overlay real-time experimental data directly onto live-computed analytical solutions (e.g., lumped capacitance or analytical fin equations) to demonstrate theoretical alignment and experimental error.</p>
+
+    <h3>Key Learning Outcomes &amp; Deliverables</h3>
+    <ul>
+        <li>Mechanical design and prototyping using Computer-Aided Design (CAD) for thermal environments.</li>
+        <li>Parts cost estimation.</li>
+        <li>Basic embedded programming and serial data communication.</li>
+        <li>Software engineering for user interfaces and real-time numerical computation.</li>
+        <li><strong>Deliverable:</strong> The design of a functioning, portable desktop demonstration rig accompanied by a live-plotting Python/MATLAB GUI and a 1-page student lab instruction sheet.</li>
+    </ul>
+
+    <h3>Onboarding Prompt for the Student</h3>
+    <blockquote>
+        <p><strong>Welcome to the Summer Research Team!</strong></p>
+        <p>Your project sits at a unique intersection of engineering design, software development, and education. You will design and prototype a portable <strong>Desktop Transient Heat Conduction Demo Rig</strong> to be used by future Year 2 King's students.</p>
+        <p>Your initial tasks for the next two weeks are:</p>
+        <ol>
+            <li><strong>Identify a Focused Topic:</strong> First, determine which topic you would like to develop a demonstration for: transient conduction, extended surfaces, convection, heat exchangers, radiation, phase change, etc.</li>
+            <li><strong>Design Sketch:</strong> Sketch the experimental design, identifying what you want to do in the demo, temperature ranges, and necessary measurements.</li>
+            <li><strong>CAD Concept:</strong> Assuming we will heat a small metal cylinder with a simple PTC heating element and let it cool via natural convection, create a preliminary CAD model (using SolidWorks/Fusion360) of a safe, heat-insulated, and physically robust enclosure.</li>
+            <li><strong>Data Logging Prototype:</strong> Write a simple Python script using <code>matplotlib</code> (or a MATLAB script) that opens a serial communication port, reads a stream of mock numbers (simulating temperature), and updates a live scrolling graph in real-time.</li>
+            <li><strong>First Milestone:</strong> In our Week 2 meeting, you will present your initial concepts.</li>
+        </ol>
+    </blockquote>
+
+    <hr>
+
+    <h2>Project 3: Commissioning a Thermal Fluids Experimental Rig</h2>
+    
+    <h3>Metadata</h3>
+    <ul>
+        <li><strong>Target Level:</strong> Year 1 Undergraduate (Engineering)</li>
+        <li><strong>Core Disciplines:</strong> Mechatronics, Instrumentation, Electrical Wiring, Lab Safety &amp; Control Loops</li>
+    </ul>
+
+    <h3>Project Overview</h3>
+    <p>Translating thermofluidic theory into robust physical data requires precise control over experimental boundaries. This highly practical, hands-on project tasks a Year 1 student with assisting in the assembly, wiring, and commissioning of a thermal control subsystem for an active laboratory rig. The student will be responsible for wiring high-power electrical cartridge heaters, integrating temperature sensors (thermocouples or RTDs), establishing signal pathways to an industrial or micro-controller interface, and implementing/tuning a Proportional-Integral-Derivative (PID) loop to maintain stable, isothermal test section conditions.</p>
+
+    <h3>Key Learning Outcomes &amp; Deliverables</h3>
+    <ul>
+        <li>Practical knowledge of laboratory electrical safety, fusing, and mechanical relay/SSR integration.</li>
+        <li>Hands-on experience with temperature instrumentation and sensor calibration.</li>
+        <li>Working knowledge of feedback control systems (PID tuning methods like Ziegler-Nichols).</li>
+        <li><strong>Deliverable:</strong> A fully wired, safe, and calibrated thermal control system with documented wiring schematics and PID tuning response curves.</li>
+    </ul>
+
+    <h3>Onboarding Prompt for the Student</h3>
+    <blockquote>
+        <p><strong>Welcome to the Summer Research Team!</strong></p>
+        <p>Your project is hands-on and vital to our lab's operations: you will be <strong>building and commissioning the thermal control hardware</strong> for a new experimental fluid rig. Your first week will focus entirely on safety, planning, and documentation.</p>
+        <p>Please complete the following tasks prior to our next meeting:</p>
+        <ol>
+            <li><strong>Component Familiarisation:</strong> Download and thoroughly read the manufacturer datasheets for the specific PID controllers, Solid State Relays (SSRs), and K-type thermocouples provided in the lab (attached to your onboarding email).</li>
+            <li><strong>Dark Schematic Drafting:</strong> Sketch a complete electrical wiring schematic for the heating system. Your diagram must explicitly show power routing, grounding, fuse placements, and the control signalling interface between the sensor, controller, and SSR.</li>
+            <li><strong>First Milestone:</strong> Present your wiring diagram to me in Week 2. Once we complete a thorough safety audit and I formally sign off on your schematic, we will enter the lab to begin physical wiring and assembly.</li>
+        </ol>
+    </blockquote>
+
+    <hr>
+
+    <h2>Project 4: CFD Simulation of Droplet Impingement Dynamics and Thermodynamics</h2>
+    
+    <h3>Metadata</h3>
+    <ul>
+        <li><strong>Target Level:</strong> Year 2 Undergraduate (Engineering)</li>
+        <li><strong>Core Disciplines:</strong> Computational Fluid Dynamics (CFD), Multiphase Flow (VOF), Transient Conduction</li>
+    </ul>
+
+    <h3>Project Overview</h3>
+    <p>This project leverages advanced numerical modelling to investigate the extreme local thermal conditions occurring during the microscopic window of time when a liquid droplet impacts a hot surface. Utilising ANSYS Fluent under a strict student license framework, the student will model a multiphase system using the Volume of Fluid (VOF) tracking method. The core research objective is to analyse the instantaneous interface temperature (\(T_i\)) at the exact millisecond of solid-liquid contact and validate it against the classical analytical solution for the contact of two semi-infinite bodies:</p>
+    
+    <div class="equation">
+        $$T_i = \frac{e_d T_d + e_s T_s}{e_d + e_s}$$
+    </div>
+    
+    <p>where \(e = \sqrt{k \rho c_p}\) represents thermal effusivity. The student will then execute a parametric study by varying the initial impact velocity to determine how dynamic advection, kinetic dissipation, and droplet deformation cause local interface heat transfer characteristics to deviate from pure conduction theory.</p>
+
+    <h3>Key Learning Outcomes &amp; Deliverables</h3>
+    <ul>
+        <li>Advanced competencies in multiphase meshing, boundary condition design, and VOF solver setup within ANSYS Fluent.</li>
+        <li>Mastery of time-step adaptation and Courant-Friedrichs-Lewy (CFL) stability criteria.</li>
+        <li>Experience validating complex numerical simulations against classical analytical thermodynamic solutions.</li>
+        <li><strong>Deliverable:</strong> A validated, high-fidelity 2D Axisymmetric CFD model and a parametric report characterising interface temperature deviations as a function of the Weber number.</li>
+    </ul>
+
+    <h3>Onboarding Prompt for the Student</h3>
+    <blockquote>
+        <p><strong>Welcome to the Summer Research Team!</strong></p>
+        <p>Your project focuses on building a high-fidelity numerical model using <strong>ANSYS Fluent</strong> to study the transient dynamics and thermodynamics of droplet impingement. Because we are operating under an ANSYS Student license, which imposes an element count limitation, you will construct this as a highly refined <strong>2D Axisymmetric</strong> model.</p>
+        <p>Please complete the following tasks for our Week 2 meeting:</p>
+        <ol>
+            <li><strong>Analytical Baseline:</strong> Calculate the theoretical initial contact interface temperature (\(T_i\)) using the classical semi-infinite contact equation for a water droplet initialised at \(20^\circ\text{C}\) impacting a solid steel substrate held at \(120^\circ\text{C}\). Look up the exact thermophysical properties (\(\rho\), \(k\), \(c_p\)) to determine their thermal effusivities (\(e\)).</li>
+            <li><strong>Software Tutorial:</strong> Go through the standard ANSYS Fluent tutorials specifically focused on the <strong>Volume of Fluid (VOF)</strong> multiphase tracking method. Sketch out your proposed 2D computational domain, showing your intended boundary locations (axis, walls, pressure outlets) and your strategy for initialising a patched liquid sphere.</li>
+            <li><strong>First Milestone:</strong> We will meet in two weeks to check your analytical calculation and review your sketched domain mesh strategy for the high-gradient impact zone.</li>
+        </ol>
+    </blockquote>
+
+</body>
+</html>

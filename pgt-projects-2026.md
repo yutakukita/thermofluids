@@ -1,4 +1,4 @@
-# Undergraduate Project Catalogue (2026/2027): Yutaku Kita
+# Postgraduate Project Catalogue (2026/2027): Yutaku Kita
 **Department of Engineering, King's College London**
 
 **Academic Advisor:** Dr Yutaku Kita (yutaku.kita@kcl.ac.uk)  

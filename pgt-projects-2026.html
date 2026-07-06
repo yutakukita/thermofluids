@@ -13,6 +13,7 @@
             margin: 0 auto;
             padding: 20px;
             background-color: #fff;
+            scroll-behavior: smooth;
         }
         h1 {
             color: #111;
@@ -131,13 +132,13 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </head>
 <body>
-    <h1>Postgraduate Project Catalogue (2026/2027): Yutaku Kita</h1>
+    <h1 id="postgraduate-project-catalogue-20262027-yutaku-kita">Postgraduate Project Catalogue (2026/2027): Yutaku Kita</h1>
     <p><strong>Department of Engineering, King's College London</strong></p>
     <p><strong>Academic Advisor:</strong> Dr Yutaku Kita (yutaku.kita@kcl.ac.uk)  </p>
     
     <hr />
     
-    <h2>Quick Links to Each Project</h2>
+    <h2 id="quick-links-to-each-project">Quick Links to Each Project</h2>
     <ul>
         <li><a href="#project-1-techno-economic-and-solar-thermal-feasibility-of-photovoltaic-driven-domestic-air-conditioning-in-the-uk">Project 1: Techno-Economic and Solar-Thermal Feasibility of Photovoltaic-Driven Domestic Air Conditioning in the UK</a></li>
         <li><a href="#project-2-techno-economic-and-thermal-assessment-of-data-centre-liquid-cooling-systems">Project 2: Techno-Economic and Thermal Assessment of Data Centre Liquid Cooling Systems</a></li>
@@ -153,7 +154,7 @@
     <p>Driven by recent extreme heatwaves and shifting UK climate frameworks, this project investigates the viability of using residential rooftop solar PV to directly power domestic air conditioning (AC). The student will model the thermodynamic alignment between summer solar irradiance profiles and the cooling loads of a typical UK residential dwelling. The study will assess if peak solar generation removes the need for expensive battery storage or night-time grid reliance, factoring in the UK's unique, rapid evening temperature drops.</p>
     
     <figure>
-        <img src="https://solarvisionai.com/wp-content/uploads/2026/03/solar-air-conditioner-system-with-solar-panels.webp" alt="Tran's droplet impact regime map image">
+        <img src="https://solarvisionai.com/wp-content/uploads/2026/03/solar-air-conditioner-system-with-solar-panels.webp" alt="Solar Air Conditioner System">
         <figcaption><a href="https://solarvisionai.com/solar-air-conditioner-efficiency-energy-savings/" target="_blank">Image source</a></figcaption>
     </figure>
     
@@ -225,7 +226,7 @@
     
     <h3>Equipment / Software required to carry out this project</h3>
     <ul>
-        <li>Ansys Multiphysics / Ansys Additive Suite or COMSOL Multiphysics <a href="https://www.comsol.com/metal-processing-module">Metal Processing Module</a> (Cost TBC)</li>
+        <li>Ansys Multiphysics / Ansys Additive Suite or COMSOL Multiphysics <a href="https://www.comsol.com/metal-processing-module" target="_blank">Metal Processing Module</a> (Cost TBC)</li>
         <li>Excel / Financial assessment toolkits</li>
     </ul>
     
@@ -273,3 +274,48 @@
     <h2 id="project-5-data-driven-drop-impact-regime-mapping-and-interactive-visual-database-development">Project 5: Data-Driven Drop Impact Regime Mapping and Interactive Visual Database Development</h2>
     <h3>Description</h3>
     <p>When a liquid droplet impinges upon a heated solid surface, its hydrodynamic and thermal behaviors, ranging from nucleate boiling and splashing to the Leidenfrost state, are dictated by a complex interplay of kinetic, surface, and thermal energies. While substantial literature exists, the experimental datasets remain decentralised. The research group currently utilises a structured system of individual JSON files to store dataset variables (temperatures, velocities, Weber numbers, liquid types, and substrate properties) for individual papers, alongside a Python script to compile and map the results.</p>
+    <p>This postgraduate project focuses on scaling this existing infrastructure into a deployment-ready web application and expanding the data library. The student will write a data ingestion pipeline that aggregates the decentralized JSON files into a unified, queryable data framework. To streamline data expansion from new literature, the student will develop a semi-automated digitizing tool to extract data coordinates directly from published graphs and output them into the group's standardized JSON format. Finally, the student will build an interactive web-based dashboard using Streamlit/Plotly. Users will be able to filter by fluid-substrate combinations and dynamically select their axes (e.g., $We$ vs. $T$, or $Re$ vs. $T$) to generate custom droplet impact regime maps instantly.</p>
+    
+    <h3>Deliverables</h3>
+    <ul>
+        <li>An optimized Python script that automatically parses, validates, and aggregates the distributed library of JSON files into a unified runtime dataframe.</li>
+        <li>A functional data-harvesting tool (leveraging Python image processing or digitization APIs) that allows users to click on literature plot images and automatically format the extracted coordinates into the standardized group JSON template.</li>
+        <li>A live-hosted GUI dashboard featuring drop-down menus for liquid/substrate filtering and axis variable selection, rendering dynamic interactive scatter plots with probabilistic transition zones.</li>
+        <li>A standalone, comprehensive developer manual and deployment guide. This document must include clean, commented codebases, an API/function architecture layout map, step-by-step instructions for future team members to ingest new JSON datasets, and operational guidelines for hosting maintenance.</li>
+        <li>A management-focused technical report documenting the application architecture, data validation protocols, UX design metrics, and an engineering analysis of regime boundary discrepancies identified across the aggregated literature.</li>
+    </ul>
+    
+    <h3>Equipment / Software required to carry out this project</h3>
+    <ul>
+        <li>Python 3.x Development Environment (Anaconda / VS Code)</li>
+        <li>Python Libraries (Pandas, NumPy, Plotly, JSON module, OpenCV/WebPlotDigitizer API)</li>
+        <li>Streamlit Web Framework and Web Cloud Hosting Server</li>
+    </ul>
+    
+    <h3>Skills developed in carrying out this project</h3>
+    <p>Data engineering and serialization pipeline design (JSON manipulation), GUI/UX product development, software asset management, technical documentation and user guide writing, automated data harvesting/image digitization, and multi-variable thermodynamic system analysis.</p>
+    
+    <h3>Skills required to carry out this project</h3>
+    <p>Strong programming foundation in Python (specifically dictionary manipulation, file I/O, and plotting), literature survey and analysis, understanding of fluid mechanics and heat transfer, and an interest in clean software formatting.</p>
+    
+    <hr />
+    
+    <h2 id="project-6-student-proposed-topic-in-thermofluids-and-energy-systems">Project 6: Student-Proposed Topic in Thermofluids and Energy Systems</h2>
+    <h3>Description</h3>
+    <p>This slot is reserved for highly motivated students who wish to pursue a specific research question, computational study, or software tool development of their own design. The proposed topic must align tightly with the supervisor’s core expertise in thermofluids, heat transfer, multi-phase flows, or thermal energy management.</p>
+    
+    <h3>Deliverables</h3>
+    <p>To be mutually agreed upon during the scoping phase, adhering strictly to the department's assessment criteria.</p>
+    
+    <h3>Equipment / Software required to carry out this project</h3>
+    <p>The project must utilize existing institutional software licenses (Ansys, COMSOL, MATLAB) or open-source coding frameworks (Python). No bespoke hardware fabrication will be funded.</p>
+    
+    <h3>Skills developed in carrying out this project</h3>
+    <p>Dependent on the approved topic.</p>
+    
+    <h3>Skills required to carry out this project</h3>
+    <p>Dependent on the approved topic.</p>
+    
+    <hr />
+</body>
+</html>

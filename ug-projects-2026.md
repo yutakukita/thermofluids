@@ -14,7 +14,6 @@
 * [Project 6: Interactive Web-Based Heat Transfer Visualiser (Computational)](#project-6-interactive-web-based-heat-transfer-visualiser-computational)
 
 ---
-Project 6: Student-Proposed Topic in Thermofluids and Energy Systems
 ## Project 1: Optimising the Hanging Layout of a Laundry Drying Rack (Experimental)
 ### Description
 This project investigates how the spatial distribution, orientation, and spacing of wet clothes on a standard household drying rack affect local evaporation rates. The student will build a hardware prototype to map the micro-climate surrounding the rack over time, determining the most efficient hanging configuration to reduce indoor drying times.

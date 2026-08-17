@@ -2,17 +2,18 @@ document.addEventListener('DOMContentLoaded', function () {
     // Hero sliders
     const imageSliderElement = document.querySelector('#img-slide');
     const textSliderElement = document.querySelector('#text-slide');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
     if (imageSliderElement && textSliderElement && typeof Splide !== 'undefined') {
         const imageSlider = new Splide('#img-slide', {
             type: 'loop',
-            autoplay: true,
+            autoplay: !prefersReducedMotion,
             resetProgress: false,
             perPage: 1,
             perMove: 1,
             gap: 500,
             interval: 8000,
-            speed: 2000,
+            speed: prefersReducedMotion ? 0 : 2000,
             focus: 'center',
             rewind: true,
             pagination: false,
@@ -78,14 +79,20 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             });
 
-            navLinks.forEach(link => {
-                link.classList.remove('current-position');
-                if (link.getAttribute('href').includes(currentId) && currentId !== '') {
-                    link.classList.add('current-position');
-                } else if (window.scrollY < 200 && link.getAttribute('href') === '#') {
-                    link.classList.add('current-position');
-                }
-            });
+            if (isHomepage) {
+                navLinks.forEach(link => {
+                    link.classList.remove('current-position');
+                    link.removeAttribute('aria-current');
+
+                    if (link.getAttribute('href').includes(currentId) && currentId !== '') {
+                        link.classList.add('current-position');
+                        link.setAttribute('aria-current', 'location');
+                    } else if (window.scrollY < 200 && link.getAttribute('href') === '#') {
+                        link.classList.add('current-position');
+                        link.setAttribute('aria-current', 'page');
+                    }
+                });
+            }
 
             let sectionBehindNav = null;
             if (isHomepage && isFixed) {

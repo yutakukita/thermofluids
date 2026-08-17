@@ -33,20 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
         textSlider.mount();
     }
 
-    // Sticky navigation
+    // Sticky navigation and section-aware state
     const nav = document.querySelector('.global-nav');
-
-    if (nav) {
-        const navTop = nav.offsetTop;
-
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > navTop) {
-                nav.classList.add('nav_fixed');
-            } else {
-                nav.classList.remove('nav_fixed');
-            }
-        });
-    }
 
     // Scroll-triggered reveals run once per element.
     const observerOptions = { threshold: 0.2 };
@@ -65,23 +53,67 @@ document.addEventListener('DOMContentLoaded', function () {
     // Active navigation link
     const sections = document.querySelectorAll('.sec-scroll-point');
     const navLinks = document.querySelectorAll('.nav-link');
+    const isHomepage = document.body.id === 'home-page';
+    const alternateSectionIds = new Set(['research', 'opportunities']);
 
-    window.addEventListener('scroll', () => {
-        let currentId = "";
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop;
-            if (window.scrollY >= sectionTop - window.innerHeight / 3) {
-                currentId = section.getAttribute('id');
-            }
-        });
+    if (nav) {
+        const header = document.querySelector('header');
+        let navTop = nav.offsetTop;
 
-        navLinks.forEach(link => {
-            link.classList.remove('current-position');
-            if (link.getAttribute('href').includes(currentId) && currentId !== "") {
-                link.classList.add('current-position');
-            } else if (window.scrollY < 200 && link.getAttribute('href') === "#") {
-                link.classList.add('current-position');
+        const updateNavTop = () => {
+            navTop = header
+                ? header.offsetTop + header.offsetHeight - nav.offsetHeight
+                : nav.offsetTop;
+        };
+
+        const updateNavigation = () => {
+            const isFixed = window.scrollY > navTop;
+            nav.classList.toggle('nav_fixed', isFixed);
+
+            let currentId = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - window.innerHeight / 3) {
+                    currentId = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('current-position');
+                if (link.getAttribute('href').includes(currentId) && currentId !== '') {
+                    link.classList.add('current-position');
+                } else if (window.scrollY < 200 && link.getAttribute('href') === '#') {
+                    link.classList.add('current-position');
+                }
+            });
+
+            let sectionBehindNav = null;
+            if (isHomepage && isFixed) {
+                const navMidpoint = nav.offsetHeight / 2;
+                sectionBehindNav = Array.from(sections).find(section => {
+                    const bounds = section.getBoundingClientRect();
+                    return bounds.top <= navMidpoint && bounds.bottom > navMidpoint;
+                });
             }
-        });
-    });
+
+            nav.classList.toggle(
+                'nav_alt',
+                Boolean(sectionBehindNav && alternateSectionIds.has(sectionBehindNav.id)),
+            );
+        };
+
+        window.addEventListener('scroll', updateNavigation);
+
+        if (isHomepage) {
+            window.addEventListener('resize', () => {
+                updateNavTop();
+                updateNavigation();
+            });
+            window.addEventListener('hashchange', updateNavigation);
+            window.addEventListener('load', updateNavigation);
+
+            updateNavTop();
+            updateNavigation();
+        }
+    }
 });

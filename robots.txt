@@ -1,0 +1,4 @@
+User-agent: *
+Disallow:
+
+Sitemap: https://kita-thermofluids.com/sitemap.xml

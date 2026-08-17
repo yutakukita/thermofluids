@@ -1,70 +1,68 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // 1. Image Slider (Master)
-    var main = new Splide('#img-slide', {
-        type      : 'loop',
-        autoplay  : true,
-        resetProgress: false,
-        perPage   : 1,
-        perMove   : 1,
-        gap       : 500,
-        interval  : 8000,
-        speed     : 2000,
-        focus     : 'center',
-        rewind    : true,
-        pagination: false,
-        arrows    : false,
-        updateOnMove: true,
-    });
+    // Hero sliders
+    const imageSliderElement = document.querySelector('#img-slide');
+    const textSliderElement = document.querySelector('#text-slide');
 
-    // 2. Text Slider (Slave)
-    var text = new Splide('#text-slide', {
-    type: 'fade',
-    rewind: true,
-    perPage: 1,
-    pagination: false,
-    arrows: false,
-    });
+    if (imageSliderElement && textSliderElement && typeof Splide !== 'undefined') {
+        const imageSlider = new Splide('#img-slide', {
+            type: 'loop',
+            autoplay: true,
+            resetProgress: false,
+            perPage: 1,
+            perMove: 1,
+            gap: 500,
+            interval: 8000,
+            speed: 2000,
+            focus: 'center',
+            rewind: true,
+            pagination: false,
+            arrows: false,
+            updateOnMove: true,
+        });
 
-    // 3. Sync and Mount
-    main.sync(text);
-    main.mount();
-    text.mount();
-});
+        const textSlider = new Splide('#text-slide', {
+            type: 'fade',
+            rewind: true,
+            perPage: 1,
+            pagination: false,
+            arrows: false,
+        });
 
-document.addEventListener('DOMContentLoaded', () => {
-    // 2. Sticky Navigation - Triggered after passing the Header
-    // 2. Sticky Navigation - Triggers exactly when the nav touches the top
+        imageSlider.sync(textSlider);
+        imageSlider.mount();
+        textSlider.mount();
+    }
+
+    // Sticky navigation
     const nav = document.querySelector('.global-nav');
 
     if (nav) {
-        // Capture the initial position of the nav from the top of the page
         const navTop = nav.offsetTop;
 
         window.addEventListener('scroll', () => {
-            // Check if the scroll position has reached or passed the nav's position
             if (window.scrollY > navTop) {
                 nav.classList.add('nav_fixed');
             } else {
                 nav.classList.remove('nav_fixed');
             }
         });
-    }   
+    }
 
-    // 3. Performance-Focused Animations (Intersection Observer)
+    // Scroll-triggered reveals run once per element.
     const observerOptions = { threshold: 0.2 };
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target); // Optional: animate only once
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
-    document.querySelectorAll('.fade-in, .fade-left, .fade-right, .fade-up')
-            .forEach(el => observer.observe(el));
+    document.querySelectorAll('.fade-in, .fade-left, .fade-right')
+        .forEach(el => observer.observe(el));
 
-    // 4. Navigation Syncing (Active Link)
+    // Active navigation link
     const sections = document.querySelectorAll('.sec-scroll-point');
     const navLinks = document.querySelectorAll('.nav-link');
 

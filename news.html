@@ -47,21 +47,10 @@ SOFTWARE.
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,-25..0" />
-    <link rel="stylesheet" href="fontello/css/fontello.css">
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
-
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script> -->
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css">
-    <link rel="stylesheet" href="style.css" type="text/css">
-    
-    <style>
-      /* Keeps icons aligned with text without a separate file load */
-      .material-symbols-outlined {display: inline-flex; vertical-align: middle; font-size: 3rem;}
-    </style>
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
     <main>
@@ -89,7 +78,7 @@ SOFTWARE.
 
             <li class="splide__slide">
               <div class="news-panel">
-                <a href="../#opportunities" target="_blank"><img src="images/news/20231107.webp" alt=""></a>
+                <a href="./#opportunities" target="_blank"><img src="images/news/20231107.webp" alt=""></a>
                 <p>20 Feb 2026</p>
                 <h3>PhD Studentships Available</h3>
                 <p>We are recruiting for two fully-funded PhD studentships on 1) <a href="https://www.surgerycdt.com/project/ice-slurry-spray-cooling-for-intraoperative-organ-protection/" target="_blank">Organ Cooling</a> (Deadline: 27 Feb 2026) and 2) <a href="https://www.findaphd.com/phds/project/phd-studentship-from-droplet-to-spray-a-mechanistic-approach-to-phase-change-thermal-management/?p194520" target="_blank" rel="noopener noreferrer">Spray Cooling</a> (Deadline: 27 Mar 2026).</p>
@@ -425,29 +414,28 @@ SOFTWARE.
     </main>
     
 
-    <!-- Javascripts -->
+    <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide-extension-grid@0.4.1/dist/js/splide-extension-grid.min.js"></script>
-    <!-- <script type="text/javascript" src="scripts.js"></script> -->
     <script>
       new Splide('#news-slide', {
-	      grid: {
-		      rows: 2,
-		      cols: 3,
-		      gap: {
-			      row: '2%',
-			      col: '2%',
-		      },
-	      },
+        grid: {
+          rows: 2,
+          cols: 3,
+          gap: {
+            row: '2%',
+            col: '2%',
+          },
+        },
         breakpoints: {
           600: {
             grid: {
-              rows:2,
-              cols:2,
+              rows: 2,
+              cols: 2,
             },
           },
         },
-	      height: '50%',
+        height: '50%',
       }).mount(window.splide.Extensions);
     </script>
   </body>

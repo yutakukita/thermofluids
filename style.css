@@ -20,10 +20,9 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE. */
 
-/* ==========================================================================
-   1. GLOBAL DEFAULTS & FONTS
-   ========================================================================== */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,300;0,400;0,500;0,700;1,100;1,300;1,400;1,500;1,700&display=swap');
+/* =========================
+   Base
+   ========================= */
 
 html {
   font-size: 65.5%;  /* 10px (100% --> 16px) */
@@ -41,27 +40,25 @@ html {
 
 body {height: 100%;width: 100%;}
 
-/* Scrollbar Styles */
+/* Keep the scrollbar visually unobtrusive in WebKit-based browsers. */
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background-color: rgba(0,0,0,0); border-radius: 3px; }
 ::-webkit-scrollbar-thumb { background-color: lightgray; border-radius: 3px; }
 
-/* Global Typography */
 h1, h2 { font-size: 350%; font-weight: 400; }
 h3 { font-size: 160%; font-weight: 400; }
 p { font-size: 140%; line-height: 130%; text-align: justify; }
 a, a:visited { position: relative; }
 a:hover,a:active { color: black; }
-.icons a::after { display: none; } /* icon links dont have underlines */
+.icons a::after { display: none; }
 img { max-width: 100%; }
 
-/* Global Figure Setting */
 figure { margin-top: 2%; margin-bottom: 2%; width: auto; display: block; text-align:center; }
 figcaption{ display: block;	margin-top: 0.5em; font-size: 120%; text-align: center; }
 
-/* ==========================================================================
-   2. LAYOUT: HEADER & HERO SLIDER
-   ========================================================================== */
+/* =========================
+   Hero
+   ========================= */
 header { height: 100svh; max-width: 100vw; background-color: black; margin: 0 auto; }
 
 header #top-container {
@@ -78,30 +75,25 @@ header #top-container {
 .left-panel h1 { color: white; letter-spacing: 2px; margin-top: 2%; margin-bottom: 5%;}
 .left-panel p.pi-name { color: lightgray; letter-spacing: 1px; font-size: 160%; font-weight: 400; }
 
-/* --- Text Slide Styles --- */
+/* Only the active text slide participates in layout so slide transitions restart cleanly. */
 #text-slide { width: 80%; margin: 50px 0 0; min-height: 300px; display: block;}
 #text-slide h3 { color: lightgrey; font-size: 260%; font-weight: 400; letter-spacing: 1.5px; }
 #text-slide p { font-size: 140%; margin-top: 5%; color: lightgrey; }
 #text-slide i { color: lightgrey; }
 
-/* 1. Hide slides that are NOT active to force a DOM 'refresh' */
 #text-slide .splide__slide:not(.is-active) { display: none; }
 
-/* 2. Base state for text inside the active slide */
-#text-slide .splide__slide.is-active h3, 
+#text-slide .splide__slide.is-active h3,
 #text-slide .splide__slide.is-active p { opacity: 1; transform: translateY(0); }
 
-/* 3. The Animation Trigger */
 #text-slide .splide__slide.is-active h3 { animation: slide-up-in 1s 0.4s both; }
 #text-slide .splide__slide.is-active p { animation: slide-up-in 1s 0.8s both; }
 
-/* 4. The Keyframes - strictly using Y axis */
 @keyframes slide-up-in {
   0% { opacity: 0; transform: translateY(20px); }
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* --- Image Slide Styles --- */
 .right-panel { width: 40%; }
 #img-slide .splide__track { height: 60svh; }
 #img-slide .splide__slide { perspective: 600px; perspective-origin: 50% 0%; display: flex; justify-content: center; }
@@ -112,13 +104,12 @@ header #top-container {
   -webkit-box-reflect: below 7px -webkit-gradient(linear, left bottom, left 75%, from(#FFF), to(transparent));
 }
 
-/* Progress slidebar */
 #img-slide .splide__progress { margin-left: auto; margin-right: 10px; width: 40px; background-color: gray; }
 #img-slide .splide__progress .splide__progress__bar { height: 2px; background: lightgray; }
 
-/* ==========================================================================
-   3. NAVIGATION
-   ========================================================================== */
+/* =========================
+   Navigation
+   ========================= */
 .global-nav {
   width: 100%;
   height: 10svh;
@@ -132,56 +123,59 @@ header #top-container {
 .global-nav ul { list-style: none; display: flex; justify-content: space-around; padding: 20px; font-size: 140%; }
 .global-nav ul li { padding: 0 20px; white-space: nowrap; }
 
-/* --- 1. DEFAULT ACTIVE STATE (Home Page Header) --- */
-/* While the nav is sitting on the black header */
+/* Navigation starts over the dark hero and switches contrast when fixed. */
 .global-nav a {text-decoration: none;}
 .global-nav a::after {
   position: absolute; left: 0; bottom: -3px; content: '';
   width: 100%; height: 1px; background: white;
   transform: scale(0, 1); transition: transform 0.3s;
 }
-/* Active Page Link */
 .nav-link.current-position {color: white !important;}
 .nav-link.current-position::after {background: white;transform: scaleX(1);}
 .nav-link:hover::after {transform: scale(1, 1);}
 .nav-link:hover, a:active, a:focus {color: white;}
 
-/* --- 2. STICKY ACTIVE STATE (When Scrolled) --- */
-/* When the nav sticks and the background turns white */
 .nav_fixed {
   position: fixed; top: 0; left: 0;
   height: 10svh; width: 100%;
   background-color: white; opacity: 0.8;
 }
-/* Active Page Link */
 .nav_fixed .nav-link.current-position {color: black !important;}
 .nav_fixed .nav-link.current-position::after {background: black;}
 .nav_fixed .nav-link::after {background: black;}
 .nav_fixed .nav-link:hover,a:active {color: black;}
-.nav-fixed .nav-link.current-position {color: black;}
 
-/* --- 3. CV PAGE EXCEPTION --- */
-/* Since the CV page is white from the start, links should never be white */
+/* The CV page has a light background from the outset. */
 #cv-page .nav-link.current-position {color: black !important;}
 #cv-page .nav-link.current-position::after {background: black;}
 #cv-page .nav-link::after {background: black;}
 #cv-page .nav-link:hover,a:active {color: black;}
-#cv-page .nav-link.current-position {color: black;}
 
-/* ==========================================================================
-   4. MAIN SECTIONS & COMPONENTS
-   ========================================================================== */
+/* =========================
+   Main Content
+   ========================= */
 main { max-width: 1140px; margin: 0 auto; }
 main h2 { margin-bottom: 2%; text-align: center; }
 section { min-height: 100svh; padding: 10svh 10% 0; }
 
-/* #news */
+/* =========================
+   News
+   ========================= */
 #news iframe { height: 90svh; width: 100%; }
 
-/* #research */
-/* #research img { width: 80%; } */
+#news-slide { height: 90svh; }
 
-/* #people */
+.news-panel { height: 40vh; padding: 0%; overflow-wrap: break-word; hyphens: auto; }
+.news-panel h3 { font-size: 150%; font-weight: 600; }
+.news-panel p { font-size: 120%; }
+
+.news-panel img { width: 100%; height: 40%; margin-bottom: 4%; object-fit: cover; }
+.news-panel img.pos-top { object-position: top; }
+.news-panel img.pos-contain { object-fit: contain; }
+
+/* =========================
+   People
+   ========================= */
 #people .icons i { font-size: 240%; color: #5f5f5f }
 #people .icons i:hover { color: black; transition: 0.5s; }
 #people .button003 a { margin-left: 0; text-decoration: none; }
@@ -192,27 +186,17 @@ h3.PI-name { font-size: 260%; font-weight: 600; }
 .PI-name a { text-decoration: none; }
 p.PI-text { margin: 0; font-size: 140%; }
 
-/* if more than three people */
-/*#people .team-member {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-}*/
-
 .people-PGR {
   height: 40svh;
-  /* width: 33.3%; if more than three people */
   display: flex;
-  /* flex-direction: column; if more than three people */
-  /* padding-right: 2%;  if more than three people */
-  /* margin-bottom: 4%;  if more than three people */
 }
 .PGR-info { margin-top: auto; margin-left: 5%; display: flex;	flex-direction: column; }
 h3.PGR-name { font-size: 260%; font-weight: 600; }
 p.PGR-text { margin: 0; font-size: 140%; }
 
-/* #opportunities */
+/* =========================
+   Join Us
+   ========================= */
 #opportunities img { width: 100%; height: 20svh; object-fit: cover; }
 #opportunities li {
   list-style: circle;
@@ -223,7 +207,9 @@ p.PGR-text { margin: 0; font-size: 140%; }
   margin-left: 10px;
 }
 
-/* #contact */
+/* =========================
+   Contact
+   ========================= */
 #contact { min-height: 90svh; height: 90svh; padding-top: 10svh; }
 .contact-box{
   display: flex;
@@ -249,13 +235,14 @@ p.PGR-text { margin: 0; font-size: 140%; }
   margin: 0 auto;
   height: auto;
   padding: 1em;
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
 .contact-item h3 { font-weight: bold; text-align: left; margin: 0.2em 0 0.2em 0; }
 
-/* Footer */
+/* =========================
+   Footer
+   ========================= */
 footer {
   width: 100%;
   height: 10svh;
@@ -271,22 +258,9 @@ footer {
 footer p { font-size: 120%; }
 footer .icons { font-size: 240%; margin-bottom: 1%; }
 
-/* ==========================================================================
-   5. PAGE-SPECIFIC: NEWS.HTML, KITA-CV.HTML
-   ========================================================================== */
-/* news.html */
-#news-slide { height: 90svh; }
-
-.news-panel { height: 40vh; padding: 0%; overflow-wrap: break-word; hyphens: auto; }
-.news-panel h3 { font-size: 150%; font-weight: 600; }
-.news-panel p { font-size: 120%; }
-
-.news-panel img { width: 100%; height: 40%; margin-bottom: 4%; object-fit: cover; }
-.news-panel img.pos-top { object-position: top; }
-.news-panel img.pos-bottom { object-position: bottom; }
-.news-panel img.pos-contain { object-fit: contain; }
-
-/* kita-cv.html */
+/* =========================
+   CV Page
+   ========================= */
 #cv-page h1 { text-align: left; }
 #cv-page h2 { font-size: 260%; font-weight: 400; text-align: left; }
 #cv-page section { min-height: auto; margin-top: 4%; padding-top: 0%;}
@@ -296,8 +270,6 @@ footer .icons { font-size: 240%; margin-bottom: 1%; }
 #pi-top-info figure { margin: 0 0% 2% 2%; width: 30%; float: right; }
 #pi-top-info figure figcaption { text-align: left; background-color: rgb(240, 240, 240); padding: 5%; }
 #pi-top-info figure figcaption ul { list-style: none; margin: 2% 0; padding-left: 5%; }
-.pi-top-info-items { display: flex; }
-
 table.cv { margin-left: 2%; border-collapse: collapse; }
 table.cv td { vertical-align: top; font-size: 140%; padding-bottom: 10px; }
 table.cv td.time { white-space: nowrap; width: 120px; font-weight: bold; }
@@ -307,32 +279,24 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
 #cv-page ol li { list-style-position: outside; padding-left: 1em; }
 .cv-list li { list-style-position: inside; font-size: 140%; padding-left: 1em; }
 
-#research-statement figure { padding: 1% 10%; border-top: solid 1px; border-bottom: solid 1px; }
+/* =========================
+   Animations
+   ========================= */
 
-/* .print-off {
-  display: inline;
-} */
-
-/* ==========================================================================
-   6. ANIMATIONS & REVEALS
-   ========================================================================== */
-
-.fade-in, .fade-left, .fade-right, .fade-up {
+.fade-in, .fade-left, .fade-right {
   opacity: 0;
   transition: all 1.0s ease-out;
 }
 .fade-left { transform: translateX(-50px); }
 .fade-right { transform: translateX(50px); }
-.fade-up { transform: translateY(50px); }
 
-/* Triggered Class from JS */
 .is-visible {
   opacity: 1 !important;
   transform: translate(0, 0) !important;
 }
 
-/* Disable Animations for CV Page */
-#cv-page .fade-in, #cv-page .fade-left, #cv-page .fade-right, #cv-page .fade-up {
+/* CV content remains visible for screen and print without reveal transitions. */
+#cv-page .fade-in, #cv-page .fade-left, #cv-page .fade-right {
   opacity: 1 !important; transform: none !important; transition: none !important;
 }
 
@@ -340,53 +304,29 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
   display: none;
 }
 
-/* ==========================================================================
-   7. ACCESSORIES
-   ========================================================================== */
-
-/* Buttons */
-/* 003 ref: https://dubdesign.net/download/html-css/button-design/ */
+/* =========================
+   Components
+   ========================= */
 .button003 { margin-top: 3%; margin-bottom: 3%; }
 .button003 a {
-  background: #eee; border-radius: 50px; /* position: relative; */
-  max-width: 260px; padding: 10px 25px; /* margin: 0 auto; */
+  background: #eee; border-radius: 50px;
+  max-width: 260px; padding: 10px 25px;
   display: flex; justify-content: space-around; align-items: center;
   font-size: 160%; font-weight: 500; color: #313131;
   transition: 0.3s ease-in-out;
 }
 .button003 a:hover { background: #313131; color: #FFF; }
-/* .button003 a:after {
-  content: '';
-  width: 5px;
-  height: 5px;
-  border-top: 3px solid #313131;
-  border-right: 3px solid #313131;
-  transform: rotate(45deg) translateY(-50%);
-  position: absolute;
-  top: 50%;
-  left: initial;
-  background-color: initial;
-  right: 20px;
-  border-radius: 1px;
-  transition: 0.3s ease-in-out;
-} */
-/* .button003 a:hover:after {
-  border-color: #FFF;
-} */
 
-/* ==========================================================================
-   8. RESPONSIVE & PRINT
-   ========================================================================== */
-
-/* mobile */
+/* =========================
+   Responsive
+   ========================= */
 @media screen and (max-width: 600px) {
-  /* Global Typography */
   h1, h2 { font-size: 300%; }
   body { overflow: hidden; }
 
   .mobile-off { display: none; }
 
-  /* HEADER & HERO */
+  /* Hero */
   header #top-container {
     padding-top: 0;
     display: flex;
@@ -414,20 +354,19 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
   }
   #img-slide .splide__track { height: 40svh; }
 
-  /* MAIN (MOBILE) */
   section { padding: 5svh 5% 10svh 5%; }
 
-  /* NEWS SECTION (MOBILE) */
+  /* News */
   #news-slide h3 { font-size: 12px; }
   #news-slide p { font-size: 10px; }
 
-  /* PEOPLE SECTION (MOBILE) */
+  /* People */
   #people img { width: 40vw; object-fit: cover; }
   #people .icons i { font-size: 5vw; }
   h3.PI-name, h3.PGR-name { font-size: 6vw; white-space: nowrap; }
   p.PI-text, p.PGR-text {font-size: 14px; text-align: left;}
 
-  /* CONTACT SECTION (MOBILE) */
+  /* Contact */
   #contact { height: 95svh; }
   .contact-box{ width: 100%; display: flex; flex-direction: column; }
   .contact-box iframe{ width: 100%; height: 300px; padding: 1em; display: block; }
@@ -436,7 +375,7 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
 
   footer { margin-bottom: 5svh; }
 
-  /* KITA-CV.HTML */
+  /* CV page */
   #cv-page section {padding: 0 5%; margin-top: 5%;}
 
   #pi-top-info { margin-top: 5%!important; }
@@ -447,6 +386,9 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
   table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-direction: column; }
 }
 
+/* =========================
+   Print
+   ========================= */
 @media print {
   nav { display: none; }
   main { padding: 1%; }

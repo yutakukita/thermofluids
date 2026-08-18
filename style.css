@@ -400,6 +400,7 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
     padding-right: 5%;
     padding-bottom: 10svh;
     padding-left: 5%;
+    overflow-x: clip;
   }
   #home-page main > #contact { padding-bottom: 10svh; }
 

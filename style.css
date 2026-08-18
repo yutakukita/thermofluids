@@ -51,6 +51,19 @@ p { font-size: 140%; line-height: 130%; text-align: justify; }
 a, a:visited { position: relative; }
 a:hover,a:active { color: black; }
 .icons a::after { display: none; }
+.icons > a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.4em;
+  vertical-align: middle;
+}
+.social-icon-x {
+  display: block;
+  width: 1em;
+  height: 1em;
+  fill: currentColor;
+}
 img { max-width: 100%; }
 
 /* Keep semantic headings and supporting links available without changing the visual layout. */
@@ -205,8 +218,11 @@ section { min-height: 100svh; padding: 10svh 10% 0; }
 /* =========================
    People
    ========================= */
-#people .icons i { font-size: 240%; color: #5f5f5f }
-#people .icons i:hover { color: black; transition: 0.5s; }
+#people .icons > a { font-size: 240%; }
+#people .icons i { color: #5f5f5f }
+#people .icons > a:hover,
+#people .icons > a:hover i,
+#people .icons > a:hover .social-icon-x { color: black; transition: 0.5s; }
 #people .button003 a { margin-left: 0; text-decoration: none; }
 
 .people-PI { display: flex; height: 40svh; margin-bottom: 4%; }
@@ -411,7 +427,7 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
 
   /* People */
   #people img { width: 40vw; object-fit: cover; }
-  #people .icons i { font-size: 5vw; }
+  #people .icons > a { font-size: 5vw; }
   h3.PI-name, h3.PGR-name { font-size: 6vw; white-space: nowrap; }
   p.PI-text, p.PGR-text {font-size: 14px; text-align: left;}
 

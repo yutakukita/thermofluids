@@ -231,13 +231,26 @@ h3.PI-name { font-size: 260%; font-weight: 600; }
 .PI-name a { text-decoration: none; }
 p.PI-text { margin: 0; font-size: 140%; }
 
-.people-PGR {
-  height: 40svh;
-  display: flex;
+.team-member {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 32px;
 }
-.PGR-info { margin-top: auto; margin-left: 5%; display: flex;	flex-direction: column; }
-h3.PGR-name { font-size: 260%; font-weight: 600; }
-p.PGR-text { margin: 0; font-size: 140%; }
+.people-PGR {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  min-width: 0;
+}
+#people .people-PGR > img {
+  width: 200px;
+  height: 280px;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+.PGR-info { margin-top: auto; min-width: 0; display: flex; flex-direction: column; overflow-wrap: anywhere; }
+h3.PGR-name { font-size: 22px; font-weight: 600; white-space: normal; }
+p.PGR-text { margin: 0; font-size: 14px; }
 
 /* =========================
    Join Us
@@ -378,6 +391,10 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
 /* =========================
    Responsive
    ========================= */
+@media screen and (max-width: 1000px) {
+  .team-member { grid-template-columns: minmax(0, 1fr); }
+}
+
 @media screen and (max-width: 600px) {
   h1, h2 { font-size: 300%; }
 
@@ -430,6 +447,11 @@ table.cv td.item { padding-left: 10px; white-space: wrap; display: flex; flex-di
   #people .icons > a { font-size: 5vw; }
   h3.PI-name, h3.PGR-name { font-size: 6vw; white-space: nowrap; }
   p.PI-text, p.PGR-text {font-size: 14px; text-align: left;}
+  #people .people-PGR > img {
+    width: 40vw;
+    height: 40svh;
+  }
+  h3.PGR-name { white-space: normal; }
 
   /* Contact */
   #contact { height: 95svh; }

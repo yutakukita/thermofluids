@@ -327,6 +327,7 @@ footer .icons { font-size: 240%; margin-bottom: 1%; }
 #pi-top-info { margin-top: 0!important; }
 #pi-top-info h1 { margin-bottom: 5%; }
 #pi-top-info figure { margin: 0 0% 2% 2%; width: 30%; float: right; }
+#pi-top-info figure img { width: 100%; height: auto; object-fit: cover; }
 #pi-top-info figure figcaption { text-align: left; background-color: rgb(240, 240, 240); padding: 5%; }
 #pi-top-info figure figcaption ul { list-style: none; margin: 2% 0; padding-left: 5%; }
 table.cv { margin-left: 2%; border-collapse: collapse; }
